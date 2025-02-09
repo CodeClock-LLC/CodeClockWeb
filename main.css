@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.timer {
+    font-size: 24px;
+    color: red;
+}
+.logo {
+    font-size: 24px;
+    color: red;
+}
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.button-grid button {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+.bottom-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+.bottom-buttons button {
+    width: 100px;
+    height: 50px;
+}
+
+#grid-parent {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    margin: 20px;
+}
+
+#grid-child {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    margin: 20px;
+}
