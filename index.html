@@ -9,6 +9,7 @@
 <body>
     <div class="header">
         <div class="timer" id="timer">00:00</div>
+        <!--TODO, add button to start timer-->
         <script>
             window.onload = function() {
                 var timer = document.getElementById('timer');
@@ -26,58 +27,91 @@
         </script>
         <div class="logo" id="logo">Code Clock Logo</div>
     </div>
-    <div class="button-grid">
+    <div class="button-grid" style="border: 2px solid red; padding: 10px;">
         <div>
             <button id="btn1-1">PC</button>
             <button id="btn1-2">PC Timer</button>
             <button id="btn1-3">PC Tally</button>
         </div>
         <div>
-            <button id="btn1-4">Button 1-4</button>
-            <button id="btn1-5">Button 1-5</button>
-            <button id="btn1-6">Button 1-6</button>
+            <button id="btn1-4">ASY</button>
+            <button id="btn1-5">PEA</button>
+            <button id="btn1-6">VT</button>
         </div>
         <div>
-            <button id="btn1-7">Button 1-7</button>
-            <button id="btn1-8">Button 1-8</button>
-            <button id="btn1-9">Button 1-9</button>
+            <button id="btn1-7">VF</button>
+            <button id="btn1-8">OTHER</button>
+            <button id="btn1-9">Other Timer</button>
         </div>
     </div>
-    <div class="button-grid" id="grid2">
-        <button id="btn2-1">Button 2-1</button>
-        <button id="btn2-2">Button 2-2</button>
-        <button id="btn2-3">Button 2-3</button>
-        <button id="btn2-4">Button 2-4</button>
-        <button id="btn2-5">Button 2-5</button>
-        <button id="btn2-6">Button 2-6</button>
-        <button id="btn2-7">Button 2-7</button>
-        <button id="btn2-8">Button 2-8</button>
+    <div class="button-grid" id="grid2" style="border: 2px solid red; padding: 10px;">
+        <!--Will be right aligned top-->
+        <div>
+            <button id="btn2-1">BICARB</button>
+            <button id="btn2-2">Ca2+</button>
+            <button id="btn2-3">NARCAN</button>
+            <button id="btn2-4">D50</button>
+        </div>
+        <div>
+            <button id="btn2-5">Mg2+</button>
+            <button id="btn2-6">LIDO</button>
+            <button id="btn2-7">FLUIDS</button>
+            <button id="btn2-8">MISC</button>
+        </div>
     </div>
-    <div class="button-grid" id="grid3">
-        <button id="btn3-1">Button 3-1</button>
-        <button id="btn3-2">Button 3-2</button>
-        <button id="btn3-3">Button 3-3</button>
-        <button id="btn3-4">Button 3-4</button>
-        <button id="btn3-5">Button 3-5</button>
-        <button id="btn3-6">Button 3-6</button>
-        <button id="btn3-7">Button 3-7</button>
-        <button id="btn3-8">Button 3-8</button>
+    <div class="button-grid" id="grid3" style="border: 2px solid red; padding: 10px;">
+        <!--Will be left aligned bottom-->
+        <div>
+            <button id="btn3-1">COMP</button>
+            <button id="btn3-2">COMP Timer</button>
+            <button id="btn3-3">SHOCK</button>
+            <button id="btn3-4">SHOCK Timer</button>
+        </div>
+        <div>
+            <button id="btn3-5">EPI</button>
+            <button id="btn3-6">EPI Timer</button>
+            <button id="btn3-7">AMIO</button>
+            <button id="btn3-8">AMIO Timer</button>
+        </div>
     </div>
-    <div class="button-grid" id="grid4">
-        <button id="btn4-1">Button 4-1</button>
-        <button id="btn4-2">Button 4-2</button>
-        <button id="btn4-3">Button 4-3</button>
-        <button id="btn4-4">Button 4-4</button>
-        <button id="btn4-5">Button 4-5</button>
-        <button id="btn4-6">Button 4-6</button>
-        <button id="btn4-7">Button 4-7</button>
-        <button id="btn4-8">Button 4-8</button>
+    <div class="button-grid" id="grid4" style="border: 2px solid red; padding: 10px;">
+        <!--Will be right aligned bottom-->
+        <!--Should be arranged in a 4x4 grid of buttons-->
+        <div>
+            <button id="btn4-1">PADS</button>
+            <button id="btn4-2">TEAM LEADER</button>
+            <button id="btn4-3">PHARMACY</button>
+            <button id="btn4-4">LABS</button>
+        <!--End of Row 1-->
+        </div>
+        <div>
+            <button id="btn4-5">BACK BOARD</button>
+            <button id="btn4-6">RECORDER</button>
+            <button id="btn4-7">MEDS</button>
+            <button id="btn4-8">ULTRASOUND</button>
+        <!--End of Row 2-->
+        </div>
+        <div>
+            <button id="btn4-9">PULSE CHECKER</button>
+            <button id="btn4-10">AIRWAY</button>
+            <button id="btn4-11">IV/IO</button>
+            <button id="btn4-12">INTUBATE</button>
+        <!--End of Row 3-->
+        </div>
+        <div>
+            <button id="btn4-13">AED</button>
+            <button id="btn4-14">ORDERS</button>
+            <button id="btn4-15">FAMILY</button>
+            <button id="btn4-16">ARTLINE</button>
+            <!--End of Row 4-->
+        </div> 
     </div>
-    <div class="bottom-buttons">
-        <button id="bottom-btn1">Bottom 1</button>
-        <button id="bottom-btn2">Bottom 2</button>
-        <button id="bottom-btn3">Bottom 3</button>
-        <button id="bottom-btn4">Bottom 4</button>
+    <div class="bottom-buttons" style="border: 2px solid red; padding: 10px;">
+        <!--bottom row, should be 4 evenly space buttons beneath all elements of the other div-->
+        <button id="bottom-btn1">END</button>
+        <button id="bottom-btn2">ROSC</button>
+        <button id="bottom-btn3">ECMO</button>
+        <button id="bottom-btn4">EXPIRED</button>
     </div>
 </body>
 </html>
