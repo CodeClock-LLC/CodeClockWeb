@@ -27,6 +27,34 @@
         </script>
         <div class="logo" id="logo">Code Clock Logo</div>
     </div>
+    <div class="button-container">
+        <!-- Left box with buttons -->
+        <div class="button-box left red-boxd">
+            <div class="button-wrapper">
+                <span class="button-label">Button 1</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            <!-- <button>Button 1</button> -->
+            <button>Button 2</button>
+            <button>Button 3</button>
+            <button>Button 4</button>
+            <button>Button 5</button>
+            <button>Button 6</button>
+        </div>
+
+        <!-- Right box with buttons -->
+        <div class="button-box right red-boxd">
+            <button>Button A</button>
+            <button>Button B</button>
+            <button>Button C</button>
+            <button>Button D</button>
+            <button>Button E</button>
+            <button>Button F</button>
+        </div>
+    </div>
+
     <div class="button-grid" style="border: 2px solid red; padding: 10px;">
         <div>
             <button id="btn1-1">PC</button>
@@ -113,5 +141,6 @@
         <button id="bottom-btn3">ECMO</button>
         <button id="bottom-btn4">EXPIRED</button>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
