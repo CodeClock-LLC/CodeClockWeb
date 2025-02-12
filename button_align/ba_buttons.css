@@ -1,0 +1,27 @@
+/* Container for both boxes */
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for two boxes */
+    gap: 20px; /* Space between the two boxes */
+  }
+  
+  /* Styling for each button box */
+  .button-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+    grid-template-rows: repeat(3, auto); /* Three rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 1px solid #ccc; /* Optional: Add a border for clarity */
+    padding: 10px; /* Optional: Add padding inside the box */
+  }
+  
+  /* Optional button styling */
+  button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .red-boxd {
+    border: 2px solid red; padding: 10px; 
+  }

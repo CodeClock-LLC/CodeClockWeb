@@ -1,0 +1,58 @@
+/* Container for all buttons */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Each button wrapper */
+  .button-wrapper {
+    text-align: center;
+  }
+  
+  /* Label above the button */
+  .button-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  /* Outer circular button */
+  .outer-button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  
+  /* Inner circle */
+  .inner-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: grey; /* Default color */
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Hover effect on outer button */
+  .outer-button:hover {
+    background-color: #bbb; /* Slightly darker shade */
+  }
+  
+  /* Click effect on outer button */
+  .outer-button:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+  }
+  
+  /* Red inner circle class (can be toggled dynamically) */
+  .inner-circle.red {
+    background-color: red;
+  }

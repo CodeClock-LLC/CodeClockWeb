@@ -1,0 +1,27 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Buttons</title>
+    <link rel="stylesheet" href="buttons.css">
+  </head>
+  <body>
+    <div class="button-container">
+      <!-- Button example -->
+      <div class="button-wrapper">
+        <span class="button-label">Button 1</span>
+        <div class="outer-button" onclick="toggleInnerCircle(this)">
+          <div class="inner-circle"></div>
+        </div>
+      </div>
+  
+      <div class="button-wrapper">
+        <span class="button-label">Button 2</span>
+        <div class="outer-button" onclick="toggleInnerCircle(this)">
+          <div class="inner-circle red"></div>
+        </div>
+      </div>
+      <script src="buttons.js"></script>
+      <!-- Add more buttons as needed -->
+    </div>
+  </body>
+  
