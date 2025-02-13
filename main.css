@@ -166,7 +166,7 @@ button {
     background-color: red;
 }
 
-/* Container for all buttons */
+/* Container for buttons */
 .button-container {
     display: flex;
     gap: 20px;
