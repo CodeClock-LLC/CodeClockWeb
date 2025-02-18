@@ -25,93 +25,326 @@
                 }, 1000);
             };
         </script>
-        <div class="logo" id="logo" style="color: red;">Code Clock Logo</div>
+        <div class="logo" id="logo">Code Clock Logo</div>
     </div>
-    <div class="button-grid" style="border: 2px solid red; padding: 10px;">
-        <div>
-            <button id="btn1-1">PC</button>
-            <button id="btn1-2">PC Timer</button>
-            <button id="btn1-3">PC Tally</button>
+   
+    <div class="button-container">
+        <!-- Left box with buttons -->
+        <div class="button-box-3col left red-boxd">
+            <!--ROW 1-->
+            <div class="button-wrapper">
+                <span class="button-label">PC</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            <button>TIMER1</button>
+            <button>TIMER2</button>
+            
+            <!--ROW 2-->
+            <div class="button-wrapper">
+                <span class="button-label">ASY</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">PEA</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">VT</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <!--ROW 3-->
+
+            <div class="button-wrapper">
+                <span class="button-label">VF</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">OTHER</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <button>TIMER 3</button>
+
         </div>
-        <div>
-            <button id="btn1-4">ASY</button>
-            <button id="btn1-5">PEA</button>
-            <button id="btn1-6">VT</button>
+
+        <!-- Right box with buttons -->
+        <div class="button-box-4col right red-boxd">
+
+            <!--ROW 1-->
+            <div class="button-wrapper">
+                <span class="button-label">BICARB</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">Ca2+</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">NARCAN</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">D50</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            
+            <!--ROW 2-->
+            <div class="button-wrapper">
+                <span class="button-label">Mg2+</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">LIDO</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">FLUIDS</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">MISC</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
         </div>
-        <div>
-            <button id="btn1-7">VF</button>
-            <button id="btn1-8">OTHER</button>
-            <button id="btn1-9">Other Timer</button>
-        </div>
+
     </div>
-    <div class="button-grid" id="grid2" style="border: 2px solid red; padding: 10px;">
-        <!--Will be right aligned top-->
-        <div>
-            <button id="btn2-1">BICARB</button>
-            <button id="btn2-2">Ca2+</button>
-            <button id="btn2-3">NARCAN</button>
-            <button id="btn2-4">D50</button>
+
+    <div class="button-container">
+        <div class="button-box-4col left red-boxd">
+            <!--ROW 1-->
+            <div class="button-wrapper">
+                <span class="button-label">COMP</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <button>TALLY1</button>
+            
+            <div class="button-wrapper">
+                <span class="button-label">SHOCK</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <button>TALLY2</button>
+
+            <!--ROW 2-->
+            <div class="button-wrapper">
+                <span class="button-label">EPI</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <button>TALLY3</button>
+            
+            <div class="button-wrapper">
+                <span class="button-label">AMIO</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <button>TALLY4</button>
+
         </div>
-        <div>
-            <button id="btn2-5">Mg2+</button>
-            <button id="btn2-6">LIDO</button>
-            <button id="btn2-7">FLUIDS</button>
-            <button id="btn2-8">MISC</button>
+
+        <!--Right box-->
+        <div class="button-box-4-4col right red-boxd">
+
+            <!--ROW 1-->
+            <div class="button-wrapper">
+                <span class="button-label">PADS</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            
+            <div class="button-wrapper">
+                <span class="button-label">TEAM LEADER</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">PHARMACY</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">LABS</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <!--ROW 2-->
+            
+            <div class="button-wrapper">
+                <span class="button-label">BACKBOARD</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            
+            <div class="button-wrapper">
+                <span class="button-label">RECORDER</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">MEDS</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">ULTRASOUND</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <!--ROW 3-->
+            <div class="button-wrapper">
+                <span class="button-label">PULSE CHECKER</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            
+            <div class="button-wrapper">
+                <span class="button-label">AIRWAY</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">IV/IO</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">INTUBATE</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <!--ROW 4-->
+            <div class="button-wrapper">
+                <span class="button-label">AED</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            
+            <div class="button-wrapper">
+                <span class="button-label">ORDERS</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">FAMILY</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <span class="button-label">ARTLINE</span>
+                <div class="outer-button" onclick="toggleInnerCircle(this)">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+
         </div>
+
     </div>
-    <div class="button-grid" id="grid3" style="border: 2px solid red; padding: 10px;">
-        <!--Will be left aligned bottom-->
-        <div>
-            <button id="btn3-1">COMP</button>
-            <button id="btn3-2">COMP Timer</button>
-            <button id="btn3-3">SHOCK</button>
-            <button id="btn3-4">SHOCK Timer</button>
-        </div>
-        <div>
-            <button id="btn3-5">EPI</button>
-            <button id="btn3-6">EPI Timer</button>
-            <button id="btn3-7">AMIO</button>
-            <button id="btn3-8">AMIO Timer</button>
-        </div>
-    </div>
-    <div class="button-grid" id="grid4" style="border: 2px solid red; padding: 10px;">
-        <!--Will be right aligned bottom-->
-        <!--Should be arranged in a 4x4 grid of buttons-->
-        <div>
-            <button id="btn4-1">PADS</button>
-            <button id="btn4-2">TEAM LEADER</button>
-            <button id="btn4-3">PHARMACY</button>
-            <button id="btn4-4">LABS</button>
-        <!--End of Row 1-->
-        </div>
-        <div>
-            <button id="btn4-5">BACK BOARD</button>
-            <button id="btn4-6">RECORDER</button>
-            <button id="btn4-7">MEDS</button>
-            <button id="btn4-8">ULTRASOUND</button>
-        <!--End of Row 2-->
-        </div>
-        <div>
-            <button id="btn4-9">PULSE CHECKER</button>
-            <button id="btn4-10">AIRWAY</button>
-            <button id="btn4-11">IV/IO</button>
-            <button id="btn4-12">INTUBATE</button>
-        <!--End of Row 3-->
-        </div>
-        <div>
-            <button id="btn4-13">AED</button>
-            <button id="btn4-14">ORDERS</button>
-            <button id="btn4-15">FAMILY</button>
-            <button id="btn4-16">ARTLINE</button>
-            <!--End of Row 4-->
-        </div> 
-    </div>
-    <div class="bottom-buttons" style="border: 2px solid red; padding: 10px;">
+    <div class="bottom-buttons red-boxd">
         <!--bottom row, should be 4 evenly space buttons beneath all elements of the other div-->
-        <button id="bottom-btn1">END</button>
-        <button id="bottom-btn2">ROSC</button>
-        <button id="bottom-btn3">ECMO</button>
-        <button id="bottom-btn4">EXPIRED</button>
+
+        <div class="button-wrapper">
+            <span class="button-label">END</span>
+            <div class="outer-button" onclick="toggleInnerCircle(this)">
+                <div class="inner-circle"></div>
+            </div>
+        </div>
+        
+        <div class="button-wrapper">
+            <span class="button-label">ROSC</span>
+            <div class="outer-button" onclick="toggleInnerCircle(this)">
+                <div class="inner-circle"></div>
+            </div>
+        </div>
+
+        <div class="button-wrapper">
+            <span class="button-label">ECMO</span>
+            <div class="outer-button" onclick="toggleInnerCircle(this)">
+                <div class="inner-circle"></div>
+            </div>
+        </div>
+
+        <div class="button-wrapper">
+            <span class="button-label">EXPIRED</span>
+            <div class="outer-button" onclick="toggleInnerCircle(this)">
+                <div class="inner-circle"></div>
+            </div>
+        </div>
+
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

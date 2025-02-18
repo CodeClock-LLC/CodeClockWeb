@@ -55,3 +55,127 @@ body {
     height: 20px;
     margin: 20px;
 }
+
+.red-boxd {
+    border: 2px solid red; padding: 10px; 
+}
+
+/* Container for both boxes */
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for two boxes */
+    gap: 20px; /* Space between the two boxes */
+    
+}
+
+/* Styling for each button box */
+.button-box-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+    grid-template-rows: repeat(3, auto); /* Three rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 1px solid #ccc; /* Optional: Add a border for clarity */
+    padding: 10px; /* Optional: Add padding inside the box */
+    border: 2px solid red; padding: 10px; 
+}
+
+/* Styling for each button box */
+.button-box-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* three buttons per row */
+    grid-template-rows: repeat(3, auto); /* Three rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 1px solid #ccc; /* Optional: Add a border for clarity */
+    padding: 10px; /* Optional: Add padding inside the box */
+    border: 2px solid red; padding: 10px; 
+}
+
+/* Styling for each button box */
+.button-box-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* four buttons per row */
+    grid-template-rows: repeat(2, auto); /* two rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 1px solid #ccc; /* Optional: Add a border for clarity */
+    padding: 10px; /* Optional: Add padding inside the box */
+    border: 2px solid red; padding: 10px; 
+}
+
+/* Styling for each button box */
+.button-box-4-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* four buttons per row */
+    grid-template-rows: repeat(3, auto); /* four rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 1px solid #ccc; /* Optional: Add a border for clarity */
+    padding: 10px; /* Optional: Add padding inside the box */
+    border: 2px solid red; padding: 10px; 
+}
+
+/* Optional button styling */
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Label above the button */
+.button-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+}
+
+/* Outer circular button */
+.outer-button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+/* Inner circle */
+.inner-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: grey; /* Default color */
+    transition: background-color 0.2s ease;
+}
+
+/* Hover effect on outer button */
+.outer-button:hover {
+    background-color: #bbb; /* Slightly darker shade */
+}
+
+/* Click effect on outer button */
+.outer-button:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+}
+
+/* Red inner circle class (can be toggled dynamically) */
+.inner-circle.red {
+    background-color: red;
+}
+
+/* Container for all buttons */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Each button wrapper */
+  .button-wrapper {
+    text-align: center;
+  }
