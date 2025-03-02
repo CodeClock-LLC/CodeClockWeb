@@ -12,26 +12,33 @@ body {
   .header {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 10px;
   }
 
-  /* Main content area */
-  .main-content {
-    flex: 1;
-    padding: 20px;
+  .spacer {
+    flex-grow: 1;
   }
   
   .timer {
-    font-size: 24px;
+    font-size: 50px;
     color: red;
   }
   
   .logo {
+    /* margin-left: auto; */
     font-size: 24px;
     color: red;
   }
   
+  .logo img {
+    /* margin-left: auto; */
+    margin-right: auto;
+    width: 50%;
+    /* height: auto; */
+  }
+
   .button-container {
     display: flex;
     gap: 20px;

@@ -55,8 +55,9 @@ const App = () => {
         <div className="timer" id="timer">
           {timer}
         </div>
+        <div className='spacer'></div>
         <div className="logo" id="logo">
-          Code Clock Logo
+          <img src="src/assets/code_clock_logo.webp" alt="Code Clock Logo"></img>
         </div>
       </div>
       <div className="button-container">
