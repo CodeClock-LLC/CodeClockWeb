@@ -9,3 +9,14 @@ function toggleInnerCircle(button) {
       innerCircle.style.backgroundColor = 'red';
     }
   }
+
+/* JavaScript to handle sidebar toggle */
+function toggleSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active');
+}
+
+/* Append this script after the window.onload function */
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+});

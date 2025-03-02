@@ -1,0 +1,145 @@
+/* src/App.css */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .timer {
+    font-size: 24px;
+    color: red;
+  }
+  
+  .logo {
+    font-size: 24px;
+    color: red;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .bottom-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Button Wrapper */
+  .button-wrapper {
+    text-align: center;
+  }
+  
+  /* Button Label */
+  .button-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+  }
+  
+  /* Outer Circular Button */
+  .outer-button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  
+  /* Inner Circle */
+  .inner-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: grey; /* Default color */
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Hover Effect on Outer Button */
+  .outer-button:hover {
+    background-color: #bbb; /* Slightly darker shade */
+  }
+  
+  /* Click Effect on Outer Button */
+  .outer-button:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+  }
+  
+  /* Red Inner Circle Class (Can Be Toggled Dynamically) */
+  .inner-circle.red {
+    background-color: red;
+  }
+  
+  /* Button Box Styling */
+  .button-box-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three buttons per row */
+    grid-template-rows: repeat(3, auto); /* Three rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  .button-box-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four buttons per row */
+    grid-template-rows: repeat(2, auto); /* Two rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  .button-box-4-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four buttons per row */
+    grid-template-rows: repeat(4, auto); /* Four rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  /* Red Box Styling */
+  .red-boxd {
+    border: 2px solid red;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+  }
+  

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "vite": "npm:vite@^6.2.0"
+  }
+}
