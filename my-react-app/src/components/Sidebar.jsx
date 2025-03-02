@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton } from "@mui/material";
 import { Menu, ChevronLeft, Dashboard, Category } from "@mui/icons-material";
+import ConsoleEmulator from "./ConsoleEmulator";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -14,12 +15,14 @@ const Sidebar = () => {
     <Drawer
       variant="permanent"
       sx={{
-        width: isCollapsed ? 60 : 240,
+        width: isCollapsed ? 60 : 400,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
-          width: isCollapsed ? 60 : 240,
+          width: isCollapsed ? 60 : 400,
           boxSizing: "border-box",
           transition: "width 0.3s ease",
+          display: "flex",
+          flexDirection: "column",
         },
       }}
     >
@@ -42,6 +45,9 @@ const Sidebar = () => {
           {!isCollapsed && <ListItemText primary="Components" />}
         </ListItem>
       </List>
+      <div style={{ flex: 2, overflow: "auto", padding: "10px" }}>
+        <ConsoleEmulator />
+      </div>
     </Drawer>
   );
 };

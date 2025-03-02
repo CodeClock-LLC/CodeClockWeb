@@ -48,6 +48,32 @@ const App = () => {
     { label: 'MISC', onClick: () => {} },
   ];
 
+  const buttonsLowerLeft = [
+    { label: 'COMP', onClick: () => {} },
+    { label: 'SHOCK', onClick: () => {} },
+    { label: 'EPI', onClick: () => {} },
+    { label: 'AMIO', onClick: () => {} },
+  ]
+
+  const buttonsLowerRight = [
+    { label: 'PADS', onClick: () => {} },
+    { label: 'TEAM LEADER', onClick: () => {} },
+    { label: 'PHARMACY', onClick: () => {} },
+    { label: 'LABS', onClick: () => {} },
+    { label: 'BACK BOARD', onClick: () => {} },
+    { label: 'RECORDER', onClick: () => {} },
+    { label: 'MEDS', onClick: () => {} },
+    { label: 'ULTRASOUND', onClick: () => {} },
+    { label: 'PULSE CHECKER', onClick: () => {} },
+    { label: 'AIRWAY', onClick: () => {} },
+    { label: 'IV/IO', onClick: () => {} },
+    { label: 'INTUBATE', onClick: () => {} },
+    { label: 'Defib', onClick: () => {} },
+    { label: 'ORDERS', onClick: () => {} },
+    { label: 'FAMILY', onClick: () => {} },
+    { label: 'ARTLINE', onClick: () => {} },
+  ]
+
   return (
     <div className="App">
       <Sidebar />
