@@ -23,6 +23,7 @@ const Sidebar = () => {
           transition: "width 0.3s ease",
           display: "flex",
           flexDirection: "column",
+          height: "100vh"
         },
       }}
     >
@@ -31,7 +32,7 @@ const Sidebar = () => {
           {isCollapsed ? <ChevronLeft /> : <Menu />}
         </IconButton>
       </div>
-      <List>
+      {/* <List>
         <ListItem button>
           <ListItemIcon>
             <Dashboard />
@@ -44,8 +45,8 @@ const Sidebar = () => {
           </ListItemIcon>
           {!isCollapsed && <ListItemText primary="Components" />}
         </ListItem>
-      </List>
-      <div style={{ flex: 2, overflow: "auto", padding: "10px" }}>
+      </List> */}
+      <div style={{ flex: 1, overflow: "auto", padding: "10px" }}>
         <ConsoleEmulator />
       </div>
     </Drawer>

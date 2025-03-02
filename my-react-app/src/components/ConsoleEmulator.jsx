@@ -1,4 +1,5 @@
 // src/components/ConsoleEmulator.jsx
+import { Height } from "@mui/icons-material";
 import React from "react";
 import Terminal from "react-console-emulator";
 
@@ -21,7 +22,7 @@ const ConsoleEmulator = () => {
       promptLabel="> "
       autoFocus={true}
       style={{
-        height: "200px",
+        minHeight: "85vh",
         backgroundColor: "#1e1e1e",
         color: "#00ff00",
         fontFamily: "monospace",
