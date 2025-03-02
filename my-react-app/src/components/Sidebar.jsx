@@ -47,7 +47,7 @@ const Sidebar = () => {
         </ListItem>
       </List> */}
       <div style={{ flex: 1, overflow: "auto", padding: "10px" }}>
-        <ConsoleEmulator />
+        {!isCollapsed && <ConsoleEmulator />}
       </div>
     </Drawer>
   );

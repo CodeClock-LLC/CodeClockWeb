@@ -18,7 +18,7 @@ const ConsoleEmulator = () => {
   return (
     <Terminal
       commands={commands}
-      welcomeMessage="Welcome to the Code Clock Console! Type 'help' for a list of commands."
+    //   welcomeMessage="Welcome to the Code Clock Console! Type 'help' for a list of commands."
       promptLabel="> "
       autoFocus={true}
       style={{
