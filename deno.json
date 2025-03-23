@@ -1,5 +1,6 @@
 {
   "imports": {
+    "gh-pages": "npm:gh-pages@^6.3.0",
     "vite": "npm:vite@^6.2.0"
   }
 }

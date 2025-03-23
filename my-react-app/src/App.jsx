@@ -6,6 +6,34 @@ import Button from './components/Button';
 import './App.css';
 
 const App = () => {
+  const [buttonsLeft] = useState([
+    { label: 'PC', onClick:    (newState) => handleButtonClick2(newState) },
+    { label: 'ASY', onClick:   (newState) => handleButtonClick2(newState) },
+    { label: 'PEA', onClick:   (newState) => handleButtonClick2(newState) },
+    { label: 'VT', onClick:    (newState) => handleButtonClick2(newState) },
+    { label: 'VF', onClick:    (newState) => handleButtonClick2(newState) },
+    { label: 'OTHER', onClick: (newState) => handleButtonClick2(newState) },
+  ]);
+
+  const [buttonsRight] = useState([
+    { label: 'BICARB', onClick: (newState) => handleButtonClick2(newState) },
+    { label: 'Ca2+', onClick: (newState)   => handleButtonClick2(newState) },
+    { label: 'NARCAN', onClick: (newState) => handleButtonClick2(newState) },
+    { label: 'D50', onClick: (newState)    => handleButtonClick2(newState) },
+    { label: 'Mg2+', onClick: (newState)   => handleButtonClick2(newState) },
+    { label: 'LIDO', onClick: (newState)   => handleButtonClick2(newState) },
+    { label: 'FLUIDS', onClick: (newState) => handleButtonClick2(newState) },
+    { label: 'MISC', onClick: (newState)   => handleButtonClick2(newState) },
+  ]);
+
+  const handleButtonClick = (index) => {
+    console.log(`Button at index ${index} clicked`);
+  };
+
+  const handleButtonClick2 = (newState) => {
+    console.log(`Indicator state is: ${newState}`);
+  };
+
   const [timer, setTimer] = useState('00:00');
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -28,52 +56,6 @@ const App = () => {
     setTimer(`${formatTime(minutes)}:${formatTime(seconds)}`);
   }, [minutes, seconds]);
 
-  const buttonsLeft = [
-    { label: 'PC', onClick: () => {} },
-    { label: 'ASY', onClick: () => {} },
-    { label: 'PEA', onClick: () => {} },
-    { label: 'VT', onClick: () => {} },
-    { label: 'VF', onClick: () => {} },
-    { label: 'OTHER', onClick: () => {} },
-  ];
-
-  const buttonsRight = [
-    { label: 'BICARB', onClick: () => {} },
-    { label: 'Ca2+', onClick: () => {} },
-    { label: 'NARCAN', onClick: () => {} },
-    { label: 'D50', onClick: () => {} },
-    { label: 'Mg2+', onClick: () => {} },
-    { label: 'LIDO', onClick: () => {} },
-    { label: 'FLUIDS', onClick: () => {} },
-    { label: 'MISC', onClick: () => {} },
-  ];
-
-  const buttonsLowerLeft = [
-    { label: 'COMP', onClick: () => {} },
-    { label: 'SHOCK', onClick: () => {} },
-    { label: 'EPI', onClick: () => {} },
-    { label: 'AMIO', onClick: () => {} },
-  ]
-
-  const buttonsLowerRight = [
-    { label: 'PADS', onClick: () => {} },
-    { label: 'TEAM LEADER', onClick: () => {} },
-    { label: 'PHARMACY', onClick: () => {} },
-    { label: 'LABS', onClick: () => {} },
-    { label: 'BACK BOARD', onClick: () => {} },
-    { label: 'RECORDER', onClick: () => {} },
-    { label: 'MEDS', onClick: () => {} },
-    { label: 'ULTRASOUND', onClick: () => {} },
-    { label: 'PULSE CHECKER', onClick: () => {} },
-    { label: 'AIRWAY', onClick: () => {} },
-    { label: 'IV/IO', onClick: () => {} },
-    { label: 'INTUBATE', onClick: () => {} },
-    { label: 'Defib', onClick: () => {} },
-    { label: 'ORDERS', onClick: () => {} },
-    { label: 'FAMILY', onClick: () => {} },
-    { label: 'ARTLINE', onClick: () => {} },
-  ]
-
   return (
     <div className="App">
       <Sidebar />
@@ -81,9 +63,9 @@ const App = () => {
         <div className="timer" id="timer">
           {timer}
         </div>
-        <div className='spacer'></div>
+        <div className="spacer"></div>
         <div className="logo" id="logo">
-          <img src="src/assets/code_clock_logo.webp" alt="Code Clock Logo"></img>
+          <img src="src/assets/code_clock_logo.webp" alt="Code Clock Logo" />
         </div>
       </div>
       <div className="button-container">
@@ -94,10 +76,11 @@ const App = () => {
         {/* Add more ButtonBox components as needed */}
       </div>
       <div className="bottom-buttons red-boxd">
-        <Button label="END" onClick={() => {}} />
-        <Button label="ROSC" onClick={() => {}} />
-        <Button label="ECMO" onClick={() => {}} />
-        <Button label="EXPIRED" onClick={() => {}} />
+        <Button label="END" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
+        
+        <Button label="ROSC" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
+        <Button label="ECMO" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
+        <Button label="EXPIRED" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
       </div>
     </div>
   );

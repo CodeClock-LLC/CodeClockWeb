@@ -46,6 +46,69 @@ body {
     align-items: center;
     flex-wrap: wrap;
   }
+
+  /* Button container for positioning UPDATE*/
+  .button-container {
+    display: flex;
+    gap: 2px; /* Reduced the gap between indicator and button */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Button Label UPDATE*/
+  .button-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+  }
+
+  /* Indicator bar above the button UPDATE*/
+  .indicator {
+    width: 100px;
+    height: 30px;  /* Increased height to make it thicker */
+    background-color: #ddd;
+    transition: background-color 0.3s ease, visibility 0.3s ease;
+    margin-bottom: 5px; /* Reduced margin to bring indicator closer to button */
+  }
+
+  /* Button styling UPDATE*/
+  .button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  /* Hover effect on button UPDATE */
+  .button:hover {
+    background-color: #bbb; /* Darken on hover */
+  }
+
+  /* Push animation on button UPDATE*/
+  .button:active {
+    transform: scale(0.95); /* Shrink when clicked */
+  }
+
+  /* When the indicator is flashing UPDATe*/
+  .flashing {
+    animation: flash 0.5s infinite alternate;
+  }
+
+  /* Keyframes for flashing effect UPDATE*/
+  @keyframes flash {
+    0% { background-color: red; }
+    100% { background-color: #ddd; }
+  }
   
   .bottom-buttons {
     display: flex;
@@ -57,52 +120,6 @@ body {
   /* Button Wrapper */
   .button-wrapper {
     text-align: center;
-  }
-  
-  /* Button Label */
-  .button-label {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block;
-    color: white;
-  }
-  
-  /* Outer Circular Button */
-  .outer-button {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
-  }
-  
-  /* Inner Circle */
-  .inner-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: grey; /* Default color */
-    transition: background-color 0.2s ease;
-  }
-  
-  /* Hover Effect on Outer Button */
-  .outer-button:hover {
-    background-color: #bbb; /* Slightly darker shade */
-  }
-  
-  /* Click Effect on Outer Button */
-  .outer-button:active {
-    transform: scale(0.95); /* Slightly shrink on click */
-  }
-  
-  /* Red Inner Circle Class (Can Be Toggled Dynamically) */
-  .inner-circle.red {
-    background-color: red;
   }
   
   /* Button Box Styling */

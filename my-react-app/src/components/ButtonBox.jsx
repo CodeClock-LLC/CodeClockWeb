@@ -1,24 +1,18 @@
-// // src/components/ButtonBox.jsx
-// import React from 'react';
-// import Button from './Button';
-
-// const ButtonBox = ({ buttons, columns }) => {
-//   return (
-//     <div className={`button-box-${columns}col`}>
-//       {buttons.map((button, index) => (
-//         <Button key={index} label={button.label} onClick={button.onClick} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default ButtonBox;
-
 // src/components/ButtonBox.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 
-const ButtonBox = ({ buttons, columns }) => {
+const ButtonBox = ({ buttons, columns, toggleBlink, toggleActive }) => {
+  const [buttonStates, setButtonStates] = useState(
+    buttons.map(() => ({ isActive: false, shouldBlink: false }))
+  );
+
+  const handleStateChange = (index, newState) => {
+    const updatedStates = [...buttonStates];
+    updatedStates[index] = newState;
+    setButtonStates(updatedStates);
+  };
+
   const getButtonBoxClass = () => {
     switch (columns) {
       case 3:
@@ -33,7 +27,14 @@ const ButtonBox = ({ buttons, columns }) => {
   return (
     <div className={`${getButtonBoxClass()} red-boxd`}>
       {buttons.map((button, index) => (
-        <Button key={index} label={button.label} onClick={button.onClick} />
+        <Button
+          key={index}
+          label={button.label}
+          onClick={() => button.onClick(index)}
+          isActive={buttonStates[index].isActive}
+          shouldBlink={buttonStates[index].shouldBlink}
+          onStateChange={(label, newState) => handleStateChange(index, newState)}
+        />
       ))}
     </div>
   );
