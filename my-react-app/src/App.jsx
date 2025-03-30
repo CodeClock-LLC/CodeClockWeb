@@ -17,13 +17,13 @@ const App = () => {
 
   const [buttonsRight] = useState([
     { label: 'BICARB', onClick: (newState) => handleButtonClick2(newState) },
-    { label: 'Ca2+', onClick: (newState)   => handleButtonClick2(newState) },
+    { label: 'Ca2+', onClick:   (newState) => handleButtonClick2(newState) },
     { label: 'NARCAN', onClick: (newState) => handleButtonClick2(newState) },
-    { label: 'D50', onClick: (newState)    => handleButtonClick2(newState) },
-    { label: 'Mg2+', onClick: (newState)   => handleButtonClick2(newState) },
-    { label: 'LIDO', onClick: (newState)   => handleButtonClick2(newState) },
+    { label: 'D50', onClick:    (newState) => handleButtonClick2(newState) },
+    { label: 'Mg2+', onClick:   (newState) => handleButtonClick2(newState) },
+    { label: 'LIDO', onClick:   (newState) => handleButtonClick2(newState) },
     { label: 'FLUIDS', onClick: (newState) => handleButtonClick2(newState) },
-    { label: 'MISC', onClick: (newState)   => handleButtonClick2(newState) },
+    { label: 'MISC', onClick:   (newState) => handleButtonClick2(newState) },
   ]);
 
   const handleButtonClick = (index) => {
@@ -76,10 +76,10 @@ const App = () => {
         {/* Add more ButtonBox components as needed */}
       </div>
       <div className="bottom-buttons red-boxd">
-        <Button label="END" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
+        <Button label="END" onClick={(newState)     => console.log(`Indicator state is: ${newState}`)} />
         
-        <Button label="ROSC" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
-        <Button label="ECMO" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
+        <Button label="ROSC" onClick={(newState)    => console.log(`Indicator state is: ${newState}`)} />
+        <Button label="ECMO" onClick={(newState)    => console.log(`Indicator state is: ${newState}`)} />
         <Button label="EXPIRED" onClick={(newState) => console.log(`Indicator state is: ${newState}`)} />
       </div>
     </div>
