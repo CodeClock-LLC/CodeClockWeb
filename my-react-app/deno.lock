@@ -19,6 +19,7 @@
     "npm:react-icons@^5.5.0": "5.5.0_react@19.0.0",
     "npm:react-redux@^9.2.0": "9.2.0_@types+react@19.0.10_react@19.0.0",
     "npm:react@19": "19.0.0",
+    "npm:redux-logger@^3.0.6": "3.0.6",
     "npm:vite@^6.2.0": "6.2.0"
   },
   "npm": {
@@ -785,6 +786,9 @@
         "ms"
       ]
     },
+    "deep-diff@0.3.8": {
+      "integrity": "sha512-yVn6RZmHiGnxRKR9sJb3iVV2XTF1Ghh2DiWRZ3dMnGc43yUdWWF/kX6lQyk3+P84iprfWKU/8zFTrlkvtFm1ug=="
+    },
     "deep-is@0.1.4": {
       "integrity": "sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ=="
     },
@@ -1275,6 +1279,12 @@
     "react@19.0.0": {
       "integrity": "sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ=="
     },
+    "redux-logger@3.0.6": {
+      "integrity": "sha512-JoCIok7bg/XpqA1JqCqXFypuqBbQzGQySrhFzewB7ThcnysTO30l4VCst86AuB9T9tuT03MAA56Jw2PNhRSNCg==",
+      "dependencies": [
+        "deep-diff"
+      ]
+    },
     "redux-thunk@3.1.0_redux@5.0.1": {
       "integrity": "sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==",
       "dependencies": [
@@ -1438,6 +1448,7 @@
         "npm:react-icons@^5.5.0",
         "npm:react-redux@^9.2.0",
         "npm:react@19",
+        "npm:redux-logger@^3.0.6",
         "npm:vite@^6.2.0"
       ]
     }

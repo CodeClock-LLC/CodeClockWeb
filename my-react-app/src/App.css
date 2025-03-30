@@ -174,3 +174,21 @@ body {
     padding: 20px;
   }
   
+.generic-box {
+  border: 1px solid lightblue; /* Differentiate from red-boxd if needed */
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.generic-box h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* Button Row Styling TODO will need to update */
+.button-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  gap: 10px; /* Space between buttons */
+  justify-content: center;
+}
