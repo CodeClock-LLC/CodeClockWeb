@@ -1,43 +1,46 @@
+// src/components/Button.jsx
 import React, { useState, useEffect } from 'react';
 
-const Button = ({ label, onClick }) => {
-  const [indicatorState, setIndicatorState] = useState('off'); // Track the state of the indicator
-  const [blink, setBlink] = useState(false); // Blink state for flashing indicator
+// Make Button controlled: It receives its visual state via props and calls onClick when clicked.
+const Button = ({ label, onClick, visualState = 'off' }) => { // Receive visualState prop, default to 'off'
+  const [blink, setBlink] = useState(false); // Blinking is purely visual, can stay internal if desired
 
-  // Effect to manage blinking when the indicator is flashing
+  // Effect to manage blinking based on the visualState prop
   useEffect(() => {
-    if (indicatorState === 'flashing') {
-      const blinkInterval = setInterval(() => {
+    let blinkInterval;
+    if (visualState === 'flashing') {
+      setBlink(false); // Start in a consistent state
+      blinkInterval = setInterval(() => {
         setBlink((prev) => !prev); // Toggle blinking every 500ms
       }, 500);
-      return () => clearInterval(blinkInterval); // Cleanup the interval when the component unmounts or when state changes
+    } else {
+      setBlink(false); // Ensure blink is off if not flashing
     }
-  }, [indicatorState]);
+    // Cleanup function
+    return () => {
+      if (blinkInterval) {
+        clearInterval(blinkInterval);
+      }
+    };
+  }, [visualState]); // Re-run effect if visualState changes
 
-  // Toggle indicator state on button click
-  const handleClick = () => {
-    let newIndicatorState = 'off';
-
-    if (indicatorState === 'off') {
-      newIndicatorState = 'solid'; // Set the indicator to solid when clicked
-    } else if (indicatorState === 'solid') {
-      newIndicatorState = 'flashing'; // Set the indicator to flashing when clicked
-    } else if (indicatorState === 'flashing') {
-      newIndicatorState = 'off'; // Reset to off when clicked
-    }
-
-    setIndicatorState(newIndicatorState); // Update the state
-    onClick(newIndicatorState); // Pass the state change to the parent component if necessary
-  };
-
-  // Set the indicator color based on its state
+  // Determine indicator style based on the visualState prop
   const getIndicatorStyle = () => {
-    if (indicatorState === 'solid') {
+    if (visualState === 'solid') {
       return { backgroundColor: 'green' };
-    } else if (indicatorState === 'flashing') {
+    } else if (visualState === 'flashing') {
+      // Use the internal blink state for the flashing effect
       return { backgroundColor: blink ? 'red' : 'grey' };
     } else {
-      return { backgroundColor: '#ddd' }; // Default color
+      return { backgroundColor: '#ddd' }; // Default 'off' color
+    }
+  };
+
+  // When the button is physically clicked, just call the onClick handler passed from the parent.
+  // The parent (`App.jsx`) will be responsible for determining the *next* state.
+  const handleClick = () => {
+    if (onClick) {
+      onClick(); // Notify the parent component of the click event
     }
   };
 
