@@ -1,5 +1,6 @@
 {
   "name": "my-react-app",
+  "homepage": "https://codeclock-llc.github.io/CodeClockWeb/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "deno run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -15,6 +18,7 @@
     "@mui/icons-material": "^6.4.6",
     "@mui/material": "^6.4.6",
     "@reduxjs/toolkit": "^2.6.1",
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-console-emulator": "^5.0.2",
     "react-dom": "^19.0.0",
