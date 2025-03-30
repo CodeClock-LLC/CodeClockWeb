@@ -1,29 +1,29 @@
 // src/redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger'; // For dev console logs
-import { loggingMiddleware } from './loggingMiddleware'; // Custom middleware for persistent log
+import logger from 'redux-logger';
+import { loggingMiddleware } from './loggingMiddleware';
 
-// Import ALL your slice reducers
-import pulseCheckReducer from './pulseCheckSlice';
+// Import ALL slice reducers
+import pulseCheckReducer from './pulseCheckSlice'; // Ensure path is correct
 import rhythmsReducer from './rhythmsSlice';
-import medsReducer from './medsSlice'; // Assuming you created these
+import medsReducer from './medsSlice';
 import tasksReducer from './tasksSlice';
 import rolesReducer from './rolesSlice';
-// import meds2Reducer from './meds2Slice';
+// import meds2Reducer from './meds2Slice'; // Still commented if not used
 import viewsReducer from './viewsSlice';
 import endStatesReducer from './endStatesSlice';
-import logReducer from './logSlice'; // The central log store
+import logReducer from './logSlice';
+import mainTimerReducer from './mainTimerSlice'; // <-- Import the new slice reducer
 
-
-const middleware = [loggingMiddleware]; // Start with our custom middleware
+const middleware = [loggingMiddleware];
 
 if (process.env.NODE_ENV !== 'production') {
-  middleware.push(logger); // Add redux-logger in development
+  middleware.push(logger);
 }
 
 export const store = configureStore({
   reducer: {
-    // Add all box reducers (use lowercase keys matching slice names)
+    // Box reducers
     pulsecheck: pulseCheckReducer,
     rhythms: rhythmsReducer,
     meds: medsReducer,
@@ -32,11 +32,12 @@ export const store = configureStore({
     // meds2: meds2Reducer,
     views: viewsReducer,
     endstates: endStatesReducer,
-    // Add the log reducer
+    // Other reducers
     log: logReducer,
+    mainTimer: mainTimerReducer, // <-- Add the main timer reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(middleware), // Apply middleware
+    getDefaultMiddleware().concat(middleware),
 });
 
 export default store;
