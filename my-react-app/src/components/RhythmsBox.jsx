@@ -35,6 +35,11 @@ const ButtonBox = ({ buttons, columns, toggleBlink, toggleActive }) => {
           onStateChange={(label, newState) => handleStateChange(index, newState)}
         />
     </div>
+    // There should be several more buttons but also timers and counters, they should be connected to some 
+    // centralized event tracker / updater that can update any of the values in counters or timers here.
+    // This should be passed as a parameter to the RythmsBox component.
+    // You should be able to update the state of a component of rhythmbox or any similar object using
+    // a call to the specific box and the element you want to update + the state you want to change.
   );
 };
 
