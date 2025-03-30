@@ -29,7 +29,7 @@ export const store = configureStore({
     meds: medsReducer,
     tasks: tasksReducer,
     roles: rolesReducer,
-    meds2: meds2Reducer,
+    // meds2: meds2Reducer,
     views: viewsReducer,
     endstates: endStatesReducer,
     // Add the log reducer

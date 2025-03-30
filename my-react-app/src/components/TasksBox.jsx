@@ -1,18 +1,17 @@
-// src/components/RhythmsBox.jsx
+// src/components/TasksBox.jsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from './Button';
 import { boxButtonLabels } from '../config/boxConfig';
-// *** IMPORTANT: Make sure you have created src/redux/rhythmsSlice.js ***
-import { toggleButton } from '../redux/rhythmsSlice'; // Import the specific action
+// *** IMPORTANT: Make sure you have created src/redux/tasksSlice.js ***
+import { toggleButton } from '../redux/tasksSlice'; // Import the specific action
 
-const boxName = 'Rhythms';
-const labels = boxButtonLabels[boxName] || []; // Ensure labels is an array
-const sliceName = boxName.toLowerCase(); // 'rhythms'
+const boxName = 'Tasks';
+const labels = boxButtonLabels[boxName] || [];
+const sliceName = boxName.toLowerCase(); // 'tasks'
 
-const RhythmsBox = () => {
+const TasksBox = () => {
     const dispatch = useDispatch();
-    // Select state from the specific slice for this box
     const buttonStates = useSelector((state) => state[sliceName]);
 
     if (!buttonStates) {
@@ -27,9 +26,8 @@ const RhythmsBox = () => {
                 {labels.map((label) => (
                     <Button
                         key={label}
-                        label={label} // Display the placeholder ID
+                        label={label}
                         visualState={buttonStates[label] ?? 'off'}
-                        // Dispatch the specific toggle action for this slice
                         onClick={() => dispatch(toggleButton(label))}
                     />
                 ))}
@@ -38,4 +36,4 @@ const RhythmsBox = () => {
     );
 };
 
-export default RhythmsBox;
+export default TasksBox;

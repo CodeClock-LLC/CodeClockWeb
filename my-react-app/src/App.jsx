@@ -10,7 +10,7 @@ import RhythmsBox from './components/RhythmsBox';
 import MedsBox from './components/MedsBox';
 import TasksBox from './components/TasksBox';
 import RolesBox from './components/RolesBox';
-import Meds2Box from './components/Meds2Box';
+// import Meds2Box from './components/Meds2Box';
 import ViewsBox from './components/ViewsBox';
 import EndStatesBox from './components/EndStatesBox';
 // Import Button if needed for other controls
@@ -88,7 +88,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div style={{ marginLeft: '60px', padding: '20px', flexGrow: 1 }}>
         <div className="header">
           {/* <div className="timer" id="timer">{formatTime(mainTimerSeconds)}</div> */}
@@ -107,7 +107,6 @@ const App = () => {
             <MedsBox />
             <TasksBox />
             <RolesBox />
-            <Meds2Box />
             <ViewsBox />
             <EndStatesBox />
             {/* Add other UI elements as needed */}

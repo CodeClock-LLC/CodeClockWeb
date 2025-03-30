@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getNextButtonState } from './buttonStateHelper';
 import { boxButtonLabels } from '../config/boxConfig';
 
-const boxName = 'End States';
+const boxName = 'EndStates';
 const labels = boxButtonLabels[boxName];
 
 const initialState = labels.reduce((acc, label) => {
