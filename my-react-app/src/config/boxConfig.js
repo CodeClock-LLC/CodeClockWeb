@@ -19,37 +19,45 @@ export const PulseCheckBoxLabels = [
     'PulseCheck-5'
 ];
 export const RhythmsBoxLabels = [
-    'Rhythms-1',
-    'Rhythms-2',
-    'Rhythms-3',
-    'Rhythms-4',
-    'Rhythms-5'
+    'ASYSTOLE',
+    'PEA',
+    'VF',
+    'VT',
+    'OTHER'
 ];
 export const MedsBoxLabels = [
-    'Meds-1',
-    'Meds-2',
-    'Meds-3',
-    'Meds-4',
-    'Meds-5',
-    'Meds-6',
-    'Meds-7',
-    'Meds-8',
-    'Meds-9',
-    'Meds-10'
+    'AMIO',
+    'EPI',
+    'LIDO',
+    'BICARB',
+    'CALCIUM',
+    'VASO',
+    'NARCAN',
+    'MAG',
+    'NOREPI',
+    'D50',
+    'FLUIDS',
+    'MISC'
 ];
 export const TasksBoxLabels = [
-    'Tasks-1',
-    'Tasks-2',
-    'Tasks-3',
-    'Tasks-4',
-    'Tasks-5'
+    'PADS',
+    'BACKBOARD',
+    'LABS',
+    'IV/IO',
+    'INTUBATE',
+    'ULTRASOUND',
+    'EtCO2',
+    'CALL FAMILY'
 ];
 export const RolesBoxLabels = [
-    'Roles-1',
-    'Roles-2',
-    'Roles-3',
-    'Roles-4',
-    'Roles-5'
+    'LEADER',
+    'PULSE CHECK',
+    'DEFIB',
+    'MEDS',
+    'HOUSE SUP',
+    'AIRWAY',
+    'PHARAMACY',
+    'RUNNER'
 ];
 // export const Meds2BoxLabels = [
 //     'Meds2-1',
@@ -59,18 +67,15 @@ export const RolesBoxLabels = [
 //     'Meds2-5'
 // ];
 export const ViewsBoxLabels = [
-    'Views-1',
-    'Views-2',
-    'Views-3',
-    'Views-4',
-    'Views-5'
+    'VIEW',
+    'UNDO'
 ];
 export const EndStatesBoxLabels = [
-    'EndStates-1',
-    'EndStates-2',
-    'EndStates-3',
-    'EndStates-4',
-    'EndStates-5'
+    'PAUSE/RESTART',
+    'END',
+    'ROSC',
+    'ECMO',
+    'EXPIRED'
 ];
 
 // Final boxbuttonLabels container
