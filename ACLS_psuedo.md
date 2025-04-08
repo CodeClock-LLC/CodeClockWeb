@@ -67,6 +67,39 @@ if Device Started:
                 # flash pulse check button
                 compression_button_pressed()
 
-        if EPI Button Pressed
+        if EPI Button Pressed:
+            # increment EPI Tally by 1
+            # Initiate EPI Timer
 
+            # After 3 minutes
+                # Turn on EPI Button (Yellow)
+
+            # After 5 minutes
+                # Turn on EPI Button (White)
+
+        if any Medication Button Pressed:
+
+            # Flash Medication Button Green
+            # Change repsective internal count
+            # Turn Button Off
+        
+        if any Role Button Pressed:
+
+            # Turn off Button
+            # Record Button press and add note in log
+
+        if End Button Pressed and End Button Held > 3 seconds:
+            if an outcome has been pressed:
+                # begin shutdown sequence
+                # halt ALL clocks
+                # for ALL Roles Buttons:
+                    if any roles_button is flashing:
+                        # Stop flashing
+                    # Open popup logging output display (use some JS popups library to show text infront of UT)
+                        # print log (include tallies)
+                        # print device stop time and end code message
+                    # log is updated with stop code
+
+        if saftey_sequence is pressed OR saftey_sequence is initiated:
+            # pause the code
 ```
