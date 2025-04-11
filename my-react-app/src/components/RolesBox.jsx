@@ -16,11 +16,11 @@ const RolesBox = () => {
 
     if (!buttonStates) {
         console.error(`State for slice "${sliceName}" not found! Ensure the slice and reducer are configured.`);
-        return <div className="generic-box red-boxd"><h3>{boxName}</h3><div>Error loading buttons.</div></div>;
+        return <div className="red-boxd"><h3>{boxName}</h3><div>Error loading buttons.</div></div>;
     }
 
     return (
-        <div className="generic-box red-boxd">
+        <div className="red-boxd">
             <h3>{boxName}</h3>
             <div className="button-row">
                 {labels.map((label) => (

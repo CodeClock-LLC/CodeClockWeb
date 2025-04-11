@@ -1,0 +1,50 @@
+/* src/components/RhythmsBox.css */
+
+/* Optional: Add specific layout for RhythmsBox if needed */
+.rhythms-box-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+  }
+  
+  .counter-row {
+    display: flex;
+    justify-content: space-evenly; /* Space out counters */
+    width: 80%; /* Control width */
+    margin-bottom: 1.5rem; /* Space below counters */
+    gap: 20px; /* Space between counters */
+  }
+  
+  .counter-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a; /* Slightly different background */
+    padding: 8px 15px;
+    border-radius: 6px;
+    min-width: 100px; /* Ensure minimum width */
+    border: 1px solid #444;
+  }
+  
+  .counter-label {
+    font-size: 0.75em;
+    color: #bbb;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent label wrapping */
+  }
+  
+  .counter-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: lightgreen; /* Counter color */
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Ensure button row below counters still works */
+  .rhythms-box-layout .button-row {
+    /* Styles from App.css should apply, or add specific ones here */
+     justify-content: center;
+     gap: 15px;
+     width: 100%;
+  }  

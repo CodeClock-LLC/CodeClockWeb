@@ -20,7 +20,7 @@ const TasksBox = () => {
     }
 
     return (
-        <div className="generic-box red-boxd">
+        <div className="red-boxd">
             <h3>{boxName}</h3>
             <div className="button-row">
                 {labels.map((label) => (

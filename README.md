@@ -21,3 +21,8 @@ I pray for forgiveness from Linus Torvalds, Bjarne Stroustrup, Dennis Ritchie, G
 
     deno install
     deno run dev
+
+
+# Developer Info
+
+Labels for buttons and other higher-level parameters are stored in `config/boxConfig.js`
