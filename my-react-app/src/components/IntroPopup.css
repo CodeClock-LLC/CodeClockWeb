@@ -1,0 +1,58 @@
+/* src/components/IntroPopup.css */
+
+.popup-overlay {
+    position: fixed; /* Stay in place even if page scrolls */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    backdrop-filter: blur(5px); /* Optional: blur background */
+  }
+  
+  .popup-content {
+    background-color: #2d2d2d; /* Dark background for the box */
+    color: #e0e0e0; /* Light text color */
+    padding: 30px 40px;
+    border-radius: 10px;
+    max-width: 600px; /* Limit width */
+    width: 90%; /* Responsive width */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+  }
+  
+  .popup-content h2 {
+    margin-top: 0;
+    color: #eee;
+    margin-bottom: 15px;
+  }
+  
+  .popup-content p {
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 1.1em;
+    text-align: left; /* Align paragraph text left */
+  }
+  
+  .popup-close-button {
+    /* Use existing button styles or add specific ones */
+    padding: 10px 25px;
+    font-size: 1.1em;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup-close-button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  
