@@ -9,7 +9,7 @@ Code Clock Web is a web-application based implementation of the Code Clock cardi
 ## TODO
 Eventually, utilize Capacitor.js to compile this into cross platform applications
 
-# React-variant-v2
+# Notes
 
 No this is not the ideal implementation of the react-variant.
 For proof-of-concept button labels are hard-coded (gross)
@@ -22,6 +22,9 @@ I pray for forgiveness from Linus Torvalds, Bjarne Stroustrup, Dennis Ritchie, G
     deno install
     deno run dev
 
+# Current URL
+
+https://codeclock-llc.github.io/CodeClockWeb/
 
 # Developer Info
 
