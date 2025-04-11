@@ -1,8 +1,8 @@
 {
-  "name": "my-react-app",
+  "name": "LeonardoFerrisi",
   "homepage": "https://codeclock-llc.github.io/CodeClockWeb/",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
