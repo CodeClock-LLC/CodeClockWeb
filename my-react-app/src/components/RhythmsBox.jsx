@@ -2,56 +2,56 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from './Button';
-// We still use boxConfig to ensure label consistency with the slice state keys
-import { RhythmsBoxLabels } from '../config/boxConfig';
+// Import only the toggleButton action needed for button clicks here
+import { toggleButton } from '../redux/rhythmsSlice';
+// Import counter actions separately if needed elsewhere, e.g., for reset buttons
+// import { incrementCompressionCount, incrementShockCount, resetAllCounters } from '../redux/rhythmsSlice';
 
-// Import all necessary actions
-import {
-    toggleButton,
-    incrementCompressionCount,
-    incrementShockCount
-    // Import counter resets if needed: resetCompressionCount, resetShockCount, etc.
-} from '../redux/rhythmsSlice';
+// Import CSS for styling this specific component
+import './RhythmsBox.css';
 
-import './RhythmsBox.css'; // Ensure CSS is imported
-
+// Define constants for the component
 const boxName = 'Rhythms';
 const sliceName = boxName.toLowerCase(); // 'rhythms'
 
-// Helper to format counter as two digits
+// Helper function to format counter values (e.g., 7 -> "07")
 const formatCounter = (count) => String(count).padStart(2, '0');
 
 const RhythmsBox = () => {
+    // Hook to dispatch actions
     const dispatch = useDispatch();
 
-    // Select the entire slice state
+    // Select the entire state slice for this component
     const rhythmState = useSelector((state) => state[sliceName]);
 
-    // Destructure needed values, providing defaults
+    // Destructure needed state values, providing default values (0 or {})
     const {
         lastDetectedCount = 0,
         totalDetectedCount = 0,
         compressionCount = 0,
         shockCount = 0,
-        ...buttonStates // Rest are button states keyed by label from boxConfig
-    } = rhythmState || {};
+        ...buttonStates // Collect remaining properties as button states
+    } = rhythmState || {}; // Use default empty object if rhythmState is null/undefined
 
+    // Early return and error logging if the state slice is missing
     if (!rhythmState) {
         console.error(`State for slice "${sliceName}" not found! Ensure the slice and reducer are configured.`);
         return <div className="generic-box red-boxd"><h3>{boxName}</h3><div>Error loading component state.</div></div>;
     }
 
-    // Define labels explicitly for clarity in this component
+    // Define button labels explicitly for rendering order and clarity
+    // These MUST match the keys used in the Redux slice initial state (derived from boxConfig.js)
     const rhythmLabels = ['ASYSTOLE', 'PEA', 'VF', 'VT', 'OTHER'];
     const compressionLabel = 'Compression';
     const shockLabel = 'Shock';
 
     return (
-        // Apply red-boxd style here
+        // Main container with red border and specific layout class
         <div className="red-boxd rhythms-box-layout">
+            {/* Box Title */}
             <h3>{boxName}</h3>
 
-            {/* Row 1: Existing Counters */}
+            {/* Row 1: Top Counters (# Last Detected, # Total Detected) */}
             <div className="counter-row">
                 <div className="counter-display">
                     <span className="counter-label"># Last Detected</span>
@@ -63,57 +63,62 @@ const RhythmsBox = () => {
                 </div>
             </div>
 
-            {/* Row 2: Main Rhythm Buttons (Hard-coded) */}
+            {/* Row 2: Main Rhythm Buttons (Hard-coded rendering) */}
             <div className="button-row">
                 {rhythmLabels.map((label) => (
                     <Button
-                        key={label}
-                        label={label}
-                        visualState={buttonStates[label] ?? 'off'}
-                        onClick={() => dispatch(toggleButton(label))} // Standard toggle
+                        key={label} // Use label as unique key
+                        label={label} // Text displayed above the button indicator
+                        visualState={buttonStates[label] ?? 'off'} // Get state from Redux, default to 'off'
+                        onClick={() => dispatch(toggleButton(label))} // Dispatch standard toggle action
                     />
                 ))}
             </div>
 
-            {/* Row 3: Compression/Shock Button/Counter Pairs (Hard-coded) */}
+            {/* Row 3: Single row for Compression and Shock Button/Counter Pairs */}
+            {/* This parent div uses flex-direction: row (via CSS) */}
             <div className="action-counter-row">
-                {/* Compression Pair */}
-                <div className="action-counter-pair">
-                    <span className="action-label">{compressionLabel}</span>
-                    <Button
-                        key={compressionLabel}
-                        label="" // Keep button visually simple
-                        visualState={buttonStates[compressionLabel] ?? 'off'}
-                        onClick={() => {
-                            // Dispatch both actions on click
-                            dispatch(toggleButton(compressionLabel));
-                            dispatch(incrementCompressionCount());
-                        }}
-                    />
-                    <div className="counter-display small">
-                        <span className="counter-value">{formatCounter(compressionCount)}</span>
-                    </div>
-                </div>
 
-                {/* Shock Pair */}
-                <div className="action-counter-pair">
-                     <span className="action-label">{shockLabel}</span>
-                     <Button
-                        key={shockLabel}
-                        label="" // Keep button visually simple
-                        visualState={buttonStates[shockLabel] ?? 'off'}
-                        onClick={() => {
-                            // Dispatch both actions on click
-                            dispatch(toggleButton(shockLabel));
-                            dispatch(incrementShockCount());
-                        }}
-                    />
-                    <div className="counter-display small">
-                        <span className="counter-value">{formatCounter(shockCount)}</span>
+                {/* Group 1: Compression Label + Button/Counter */}
+                {/* This div uses flex-direction: column (via CSS) */}
+                <div className="labeled-action-pair">
+                    <span className="action-label">{compressionLabel}</span>
+                    {/* This div uses flex-direction: row (via CSS) */}
+                    <div className="button-counter-inline">
+                        <Button
+                            key={compressionLabel}
+                            label="" // No text label needed within the button itself
+                            visualState={buttonStates[compressionLabel] ?? 'off'} // Get state from Redux
+                            onClick={() => dispatch(toggleButton(compressionLabel))} // Dispatch ONLY toggle action
+                        />
+                        <div className="counter-display small"> {/* Counter display */}
+                            <span className="counter-value">{formatCounter(compressionCount)}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                {/* End of Group 1 */}
+
+                {/* Group 2: Shock Label + Button/Counter */}
+                {/* This div uses flex-direction: column (via CSS) */}
+                <div className="labeled-action-pair">
+                    <span className="action-label">{shockLabel}</span>
+                     {/* This div uses flex-direction: row (via CSS) */}
+                     <div className="button-counter-inline">
+                        <Button
+                            key={shockLabel}
+                            label="" // No text label needed within the button itself
+                            visualState={buttonStates[shockLabel] ?? 'off'} // Get state from Redux
+                            onClick={() => dispatch(toggleButton(shockLabel))} // Dispatch ONLY toggle action
+                        />
+                        <div className="counter-display small"> {/* Counter display */}
+                            <span className="counter-value">{formatCounter(shockCount)}</span>
+                        </div>
+                    </div>
+                </div>
+                {/* End of Group 2 */}
+
+            </div> {/* End of action-counter-row */}
+        </div> // End of rhythms-box-layout
     );
 };
 
