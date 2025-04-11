@@ -1,0 +1,117 @@
+/* src/components/RhythmsBox.css */
+
+.rhythms-box-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Row 1: Existing Counters */
+  .counter-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-bottom: 1.5rem;
+    gap: 20px;
+  }
+  
+  .counter-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 8px 15px;
+    border-radius: 6px;
+    min-width: 100px;
+    border: 1px solid #444;
+  }
+  
+  .counter-label {
+    font-size: 0.75em;
+    color: #bbb;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  
+  .counter-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: lightgreen;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Row 2: Existing Button Row */
+  .rhythms-box-layout .button-row {
+     display: flex; /* Ensure flex */
+     flex-wrap: wrap; /* Allow wrapping */
+     justify-content: center;
+     gap: 15px;
+     width: 100%;
+     margin-bottom: 1.5rem; /* Space below buttons */
+  }
+  
+  /* --- Row 3: Styles for New Layout --- */
+  .action-counter-row {
+    display: flex;
+    justify-content: center; /* Center the pairs */
+    align-items: flex-start;  /* Align pairs at the top */
+    width: 90%; /* Adjust width as needed */
+    gap: 40px; /* Increase gap between the Compression and Shock pairs */
+  }
+  
+  .labeled-action-pair {
+    display: flex;
+    flex-direction: column; /* Stack label above button/counter */
+    align-items: center; /* Center label and the row below */
+    gap: 5px; /* Space between label and button/counter row */
+  }
+  
+  .action-label {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* New container for Button + Counter inline */
+  .button-counter-inline {
+      display: flex;
+      align-items: center; /* Vertically align button and counter */
+      gap: 10px; /* Space between button and counter */
+  }
+  
+  /* Styles for the counter within the pair */
+  .labeled-action-pair .counter-display.small {
+    min-width: 60px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background-color: #1f1f1f;
+    /* Remove vertical margin if needed */
+    margin: 0;
+  }
+  
+  .labeled-action-pair .counter-display.small .counter-value {
+    font-size: 1.4em;
+    color: cyan;
+  }
+  
+  /* Styles for the button within the pair */
+  .labeled-action-pair .button-wrapper {
+     margin: 0; /* Remove default margins if any */
+  }
+  .labeled-action-pair .button-wrapper .button {
+     width: 80px;
+     height: 80px;
+  }
+  .labeled-action-pair .button-wrapper .indicator {
+     width: 80px;
+     height: 20px;
+  }
+  .labeled-action-pair .button-wrapper .button-label {
+     display: none; /* Hide inner button label text */
+  }
+  
+  

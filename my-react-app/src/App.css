@@ -1,0 +1,201 @@
+/* src/App.css */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+  
+  .timer {
+    font-size: 50px;
+    color: red;
+  }
+  
+  .logo {
+    /* margin-left: auto; */
+    font-size: 24px;
+    color: red;
+  }
+  
+  .logo img {
+    /* margin-left: auto; */
+    margin-right: auto;
+    width: 50%;
+    /* height: auto; */
+  }
+
+  .button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Button container for positioning UPDATE*/
+  .button-container {
+    display: flex;
+    gap: 2px; /* Reduced the gap between indicator and button */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Button Label UPDATE*/
+  .button-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+  }
+
+  /* Indicator bar above the button UPDATE*/
+  .indicator {
+    width: 100px;
+    height: 30px;  /* Increased height to make it thicker */
+    background-color: #ddd;
+    transition: background-color 0.3s ease, visibility 0.3s ease;
+    margin-bottom: 5px; /* Reduced margin to bring indicator closer to button */
+  }
+
+  /* Button styling UPDATE*/
+  .button {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  /* Hover effect on button UPDATE */
+  .button:hover {
+    background-color: #bbb; /* Darken on hover */
+  }
+
+  /* Push animation on button UPDATE*/
+  .button:active {
+    transform: scale(0.95); /* Shrink when clicked */
+  }
+
+  /* When the indicator is flashing UPDATe*/
+  .flashing {
+    animation: flash 0.5s infinite alternate;
+  }
+
+  /* Keyframes for flashing effect UPDATE*/
+  @keyframes flash {
+    0% { background-color: red; }
+    100% { background-color: #ddd; }
+  }
+  
+  .bottom-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Button Wrapper */
+  .button-wrapper {
+    text-align: center;
+  }
+  
+  /* Button Box Styling */
+  .button-box-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three buttons per row */
+    grid-template-rows: repeat(3, auto); /* Three rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  .button-box-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four buttons per row */
+    grid-template-rows: repeat(2, auto); /* Two rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  .button-box-4-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four buttons per row */
+    grid-template-rows: repeat(4, auto); /* Four rows of buttons */
+    gap: 10px; /* Space between buttons */
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  /* Red Box Styling */
+  .red-boxd {
+    border: 2px solid red;
+    /* padding: 10px; */
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .red-boxd h3 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+  }
+  
+.generic-box {
+  border: 1px solid lightblue; /* Differentiate from red-boxd if needed */
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.generic-box h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* Button Row Styling TODO will need to update */
+.button-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  gap: 10px; /* Space between buttons */
+  justify-content: center;
+}
