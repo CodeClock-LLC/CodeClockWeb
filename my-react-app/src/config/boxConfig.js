@@ -23,7 +23,9 @@ export const RhythmsBoxLabels = [
     'PEA',
     'VF',
     'VT',
-    'OTHER'
+    'OTHER',
+    "COMPRESSION",
+    "SHOCK"
 ];
 export const MedsBoxLabels = [
     'AMIO',

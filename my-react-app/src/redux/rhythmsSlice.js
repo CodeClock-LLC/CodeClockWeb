@@ -64,11 +64,27 @@ export const rhythmsSlice = createSlice({
         resetTotalDetected: (state) => {
             state.totalDetectedCount = 0;
         },
+        // --- New Counter Reducers ---
+        incrementCompressionCount: (state) => {
+            state.compressionCount = (state.compressionCount + 1) % 100;
+        },
+        resetCompressionCount: (state) => {
+            state.compressionCount = 0;
+        },
+        incrementShockCount: (state) => {
+            state.shockCount = (state.shockCount + 1) % 100;
+        },
+        resetShockCount: (state) => {
+            state.shockCount = 0;
+        },
+
         // Optional: Reset both counters at once
         resetAllCounters: (state) => {
             state.lastDetectedCount = 0;
             state.totalDetectedCount = 0;
-        }
+            state.compressionCount = 0;
+            state.shockCount = 0;
+        },
     },
 });
 
@@ -80,7 +96,11 @@ export const {
     resetLastDetected,
     incrementTotalDetected,
     resetTotalDetected,
-    resetAllCounters
+    resetAllCounters,
+    incrementCompressionCount,
+    resetCompressionCount,
+    incrementShockCount,
+    resetShockCount
 } = rhythmsSlice.actions;
 
 export default rhythmsSlice.reducer;
