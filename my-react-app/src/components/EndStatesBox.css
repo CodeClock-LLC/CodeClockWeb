@@ -1,0 +1,11 @@
+/* Increase spacing specifically for buttons in EndStatesBox */
+.endstates-button-row {
+    /* Overrides the default gap from .button-row if needed, or just adds more */
+    gap: 25px; /* Increase gap between buttons (adjust value as desired) */
+    /* You could also adjust padding or other layout properties here */
+    /* Example: Add more padding around the row */
+    /* padding: 15px 0; */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center;
+}
