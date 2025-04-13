@@ -11,8 +11,8 @@ const initialState = Array.isArray(labels) ? labels.reduce((acc, label) => {
     // Each button now has an object storing its states
     acc[label] = {
         mainState: 'off',      // 'off', 'solid', 'flashing'
-        indicator1On: false,   // State for ButtonVariant1 indicator 1
-        indicator2On: false,   // State for ButtonVariant1 indicator 2
+        indicator1On: false,   // State for ButtonVariant1 indicator 1 (Top)
+        indicator2On: false,   // State for ButtonVariant1 indicator 2 (Bottom)
     };
     return acc;
 }, {}) : {};
@@ -30,8 +30,6 @@ export const medsSlice = createSlice({
             const label = action.payload;
             if (state[label]) { // Check if button state object exists
                 state[label].mainState = getNextButtonState(state[label].mainState);
-                // TODO: Add logic here later to potentially change indicator states
-                // based on the mainState transition if needed.
             } else {
                 console.warn(`[medsSlice] Button label not found in state:`, label);
             }
@@ -49,43 +47,59 @@ export const medsSlice = createSlice({
                  });
              }
         },
-        // Additional functionality ::: 
-        // --- Actions to specifically control indicators ---
-        // Example: Set state for indicator 1
-        setIndicator1State: (state, action) => {
-            const { label, isOn } = action.payload; // Expect { label: string, isOn: boolean }
+
+        // --- NEW Reducer for 3-state indicator cycle ---
+        cycleIndicators: (state, action) => {
+            const label = action.payload;
             if (state[label]) {
-                state[label].indicator1On = !!isOn; // Ensure boolean
+                const indicator1 = state[label].indicator1On;
+                const indicator2 = state[label].indicator2On;
+
+                if (!indicator1 && !indicator2) {
+                    // State 0 (Both Off) -> State 1 (Top On)
+                    state[label].indicator1On = true;
+                    state[label].indicator2On = false;
+                } else if (indicator1 && !indicator2) {
+                    // State 1 (Top On) -> State 2 (Both On)
+                    state[label].indicator1On = true;
+                    state[label].indicator2On = true;
+                } else {
+                    // State 2 (Both On) -> State 0 (Both Off)
+                    // Also handles any unexpected state by resetting
+                    state[label].indicator1On = false;
+                    state[label].indicator2On = false;
+                }
+            } else {
+                 console.warn(`[medsSlice] Button label not found in state for cycleIndicators:`, label);
             }
         },
-        // Example: Set state for indicator 2
+        // --- End New Reducer ---
+
+        // --- Existing actions to specifically control indicators (optional) ---
+        setIndicator1State: (state, action) => {
+            const { label, isOn } = action.payload;
+            if (state[label]) { state[label].indicator1On = !!isOn; }
+        },
         setIndicator2State: (state, action) => {
-            const { label, isOn } = action.payload; // Expect { label: string, isOn: boolean }
-             if (state[label]) {
-                state[label].indicator2On = !!isOn; // Ensure boolean
-            }
+            const { label, isOn } = action.payload;
+             if (state[label]) { state[label].indicator2On = !!isOn; }
         },
-        // Example: Toggle state for indicator 1
         toggleIndicator1: (state, action) => {
-             const label = action.payload; // Expect label string
-             if (state[label]) {
-                state[label].indicator1On = !state[label].indicator1On;
-            }
+             const label = action.payload;
+             if (state[label]) { state[label].indicator1On = !state[label].indicator1On; }
         },
-         // Example: Toggle state for indicator 2
         toggleIndicator2: (state, action) => {
-             const label = action.payload; // Expect label string
-             if (state[label]) {
-                state[label].indicator2On = !state[label].indicator2On;
-            }
+             const label = action.payload;
+             if (state[label]) { state[label].indicator2On = !state[label].indicator2On; }
         }
     },
 });
 
-// Export all actions
+// Export all actions, including the new one
 export const {
     toggleButton,
     resetButtons,
+    cycleIndicators, // <-- Export new action
     setIndicator1State,
     setIndicator2State,
     toggleIndicator1,

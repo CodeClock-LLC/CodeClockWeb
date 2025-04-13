@@ -203,24 +203,6 @@ body {
 }
 
 /* Styles for the text display div added in MedsBox.jsx */
-.meds-info-box-old {
-  width: 100%; /* Make it slightly less than full width */
-  padding: 10px 15px; /* Inner spacing */
-  margin: 15px auto; /* Vertical space + horizontal centering */
-  display: block; /* Needed for auto horizontal margins */
-  background-color: #1f1f1f; /* Slightly different dark background */
-  color: #c0c0c0; /* Slightly dimmer text color */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 0.95em; /* Slightly smaller font */
-  min-height: 40px; /* Give it some minimum height */
-  line-height: 1.4;
-  text-align: left; /* Align text to the left */
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
-  border: 1px solid #ff0000; /* Default border */
-  text-align: center; /* Center text */
-}
-
-/* Styles for the text display div added in MedsBox.jsx */
 .meds-info-box {
   text-align: center; /* Center text */
   display: flex;

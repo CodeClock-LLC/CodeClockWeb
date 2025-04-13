@@ -7,12 +7,12 @@ import { boxButtonLabels } from '../config/boxConfig';
 // Import the actions needed from the updated slice
 import {
     toggleButton,
-    toggleIndicator1 // Action for V1 indicator example
-    /* Add other indicator actions if needed: , toggleIndicator2, setIndicator1State, etc. */
+    cycleIndicators // Use cycleIndicators for the 3-state logic
+    // Add other indicator actions if needed: , setIndicator1State, etc.
 } from '../redux/medsSlice';
 
-// Import CSS if needed
-// import './MedsBox.css'; // Or ButtonVariants.css if styles are shared
+// Import CSS if needed (assuming styles are handled globally or imported elsewhere)
+// import './MedsBox.css'; // Or './ButtonVariants.css' if styles are there
 
 const boxName = 'Meds';
 // Get all labels for this box, default to empty array if not found
@@ -44,16 +44,14 @@ const MedsBox = () => {
             <div className="button-row" style={{ marginBottom: '10px' }}>
                 {topRowLabels.map((label) => {
                     // Get the state object for this button, provide default if missing
-                    const stateObj = buttonStateObjects[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
+                    const stateObj = buttonStateObjects[label] || { mainState: 'off' };
                     return (
                         <Button
                             key={label}
                             label={label}
-                            // --- CORRECTED ---
                             // Pass the mainState string ('off', 'solid', 'flashing')
                             // to the original Button's visualState prop.
                             visualState={stateObj.mainState}
-                            // --- END CORRECTION ---
                             onClick={() => dispatch(toggleButton(label))} // Toggles mainState in Redux
                         />
                     );
@@ -61,12 +59,9 @@ const MedsBox = () => {
             </div>
 
             {/* --- Div for Text Display --- */}
-            {/* <div className="meds-info-box red-boxd">
-                    🟢 = Bolus,       🔵 = Drip (Double Press)
-            </div> */}
             <div className="meds-info-box red-boxd">
-                <span className="info-item">🟢 = Bolus</span>
-                <span className="info-item">🔵 = Drip (Double Press)</span>
+                 <span className="info-item">🟢 = Bolus</span>
+                 <span className="info-item">🔵 = Drip (Double Press)</span>
             </div>
             {/* --- End Text Display Div --- */}
 
@@ -78,15 +73,16 @@ const MedsBox = () => {
                     return (
                         <ButtonVariant1
                             key={label}
-                            label={label}
-                            // Example onClick: Toggles main state AND indicator 1
+                            label={label} // Label above the button
+                            // onClick now dispatches toggleButton and cycleIndicators
                             onClick={() => {
-                                dispatch(toggleButton(label));
-                                dispatch(toggleIndicator1(label));
+                                dispatch(toggleButton(label)); // Toggle main button state
+                                dispatch(cycleIndicators(label)); // Cycle through indicator states
                             }}
                             // Pass indicator states from the Redux state object
                             indicator1={{ isOn: stateObj.indicator1On ?? false }}
                             indicator2={{ isOn: stateObj.indicator2On ?? false }}
+                            // Colors use defaults from ButtonVariant1.jsx
                         />
                     );
                 })}
