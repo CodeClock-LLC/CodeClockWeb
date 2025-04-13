@@ -21,8 +21,14 @@ const allLabels = boxButtonLabels[boxName] || [];
 const sliceName = boxName.toLowerCase(); // 'meds'
 
 // Split labels into two groups
+const AMIO_label   = allLabels.slice(0, 1); // First label (AMIO)
+const EPI_label   = allLabels.slice(1, 2); // Second label (EPI)
+const LIDO_label   = allLabels.slice(2, 3); // Third label (LIDO)
+
 const topRowLabels = allLabels.slice(0, 3); // First 3 labels
 const bottomRowLabels = allLabels.slice(3); // The rest of the labels
+
+const formatCounter = (count) => String(count).padStart(2, '0');
 
 const MedsBox = () => {
     const dispatch = useDispatch();
@@ -43,6 +49,7 @@ const MedsBox = () => {
 
             {/* Top Row - First 3 Buttons (Now Using ButtonVariant4) */}
             <div className="button-row" style={{ marginBottom: '10px' }}>
+
                 {topRowLabels.map((label) => {
                     // Get the state object for this button, provide default if missing
                     const stateObj = buttonStateObjects[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
