@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from './Button';
+import ButtonVariant1 from './ButtonVariant1'; // Import the new button variant
 import { boxButtonLabels } from '../config/boxConfig';
 // *** IMPORTANT: Make sure you have created src/redux/medsSlice.js ***
 import { toggleButton } from '../redux/medsSlice'; // Import the specific action
@@ -53,14 +54,24 @@ const MedsBox = () => {
 
             {/* Bottom Row - Remaining Buttons */}
             <div className="button-row">
-                {bottomRowLabels.map((label) => (
-                    <Button
-                        key={label} // Use label as unique key
-                        label={label} // Display the actual medication/action name
-                        visualState={buttonStates[label] ?? 'off'} // Get state from Redux
-                        onClick={() => dispatch(toggleButton(label))} // Dispatch toggle action
-                    />
-                ))}
+                {bottomRowLabels.map((label) => {
+                        // Get the state object for this button, default if not found
+                        const stateObj = buttonStates[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
+                        return (
+                            <ButtonVariant1
+                                key={label}
+                                label={label} // Label above the button
+                                // The main button click still toggles the main visual state (off/solid/flashing)
+                                onClick={() => dispatch(toggleButton(label))}
+                                // Pass indicator states from the Redux state object
+                                // The 'isOn' property controls the indicator's brightness/visibility
+                                indicator1={{ isOn: stateObj.indicator1On ?? false }}
+                                indicator2={{ isOn: stateObj.indicator2On ?? false }}
+                                // Note: Colors are using the defaults defined within ButtonVariant1.jsx
+                                // You could pass 'color: "your_color"' in the objects above to override.
+                            />
+                        );
+                    })}
             </div>
         </div>
     );
