@@ -1,18 +1,19 @@
 // src/components/MedsBox.jsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Button from './Button'; // Original button for top row
+// Remove original Button import if no longer used elsewhere in this file
+// import Button from './Button';
 import ButtonVariant1 from './ButtonVariant1'; // Variant for bottom row
+import ButtonVariant4 from './ButtonVariant4'; // <-- Import ButtonVariant4
 import { boxButtonLabels } from '../config/boxConfig';
-// Import the actions needed from the updated slice
+// Import the actions needed from the meds slice
 import {
-    toggleButton,
-    cycleIndicators // Use cycleIndicators for the 3-state logic
-    // Add other indicator actions if needed: , setIndicator1State, etc.
+    toggleButton,     // For main state (rect indicator in V4, main button in V1)
+    cycleIndicators // For circular indicators in V1 and V4
 } from '../redux/medsSlice';
 
-// Import CSS if needed (assuming styles are handled globally or imported elsewhere)
-// import './MedsBox.css'; // Or './ButtonVariants.css' if styles are there
+// Import CSS if needed
+// import './MedsBox.css'; // Or ButtonVariants.css if styles are shared
 
 const boxName = 'Meds';
 // Get all labels for this box, default to empty array if not found
@@ -40,19 +41,25 @@ const MedsBox = () => {
             {/* Box Title */}
             <h3>{boxName}</h3>
 
-            {/* Top Row - First 3 Buttons (Using Original Button) */}
+            {/* Top Row - First 3 Buttons (Now Using ButtonVariant4) */}
             <div className="button-row" style={{ marginBottom: '10px' }}>
                 {topRowLabels.map((label) => {
                     // Get the state object for this button, provide default if missing
-                    const stateObj = buttonStateObjects[label] || { mainState: 'off' };
+                    const stateObj = buttonStateObjects[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
                     return (
-                        <Button
+                        <ButtonVariant4 // <-- Use ButtonVariant4 here
                             key={label}
                             label={label}
-                            // Pass the mainState string ('off', 'solid', 'flashing')
-                            // to the original Button's visualState prop.
+                            // Pass the mainState for the rectangular indicator
                             visualState={stateObj.mainState}
-                            onClick={() => dispatch(toggleButton(label))} // Toggles mainState in Redux
+                            // Pass the states for the circular indicators
+                            indicator1={{ isOn: stateObj.indicator1On ?? false }}
+                            indicator2={{ isOn: stateObj.indicator2On ?? false }}
+                            // onClick dispatches actions for BOTH indicator types
+                            onClick={() => {
+                                dispatch(toggleButton(label));     // Toggles mainState (rect indicator)
+                                dispatch(cycleIndicators(label)); // Cycles circular indicators
+                            }}
                         />
                     );
                 })}
@@ -74,7 +81,7 @@ const MedsBox = () => {
                         <ButtonVariant1
                             key={label}
                             label={label} // Label above the button
-                            // onClick now dispatches toggleButton and cycleIndicators
+                            // onClick dispatches actions for BOTH indicator types
                             onClick={() => {
                                 dispatch(toggleButton(label)); // Toggle main button state
                                 dispatch(cycleIndicators(label)); // Cycle through indicator states
@@ -82,7 +89,6 @@ const MedsBox = () => {
                             // Pass indicator states from the Redux state object
                             indicator1={{ isOn: stateObj.indicator1On ?? false }}
                             indicator2={{ isOn: stateObj.indicator2On ?? false }}
-                            // Colors use defaults from ButtonVariant1.jsx
                         />
                     );
                 })}

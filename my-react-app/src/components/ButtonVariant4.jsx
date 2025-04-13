@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './ButtonVariants.css'; // Import shared styles
 
 // Define default colors for circular indicators
-const DEFAULT_COLOR_1 = '#FF5733'; // Orange
+const DEFAULT_COLOR_1 = '#33FF57'; // Green
 const DEFAULT_COLOR_2 = '#33FF57'; // Green
 
 /**
@@ -11,7 +11,7 @@ const DEFAULT_COLOR_2 = '#33FF57'; // Green
  * - Label above
  * - Rectangular indicator below label
  * - Main circular button below rectangular indicator
- * - Two vertically stacked circular indicators top-left (aligned with label/rect indicator)
+ * - Two vertically stacked circular indicators positioned relative to the button's top-left
  *
  * Props:
  * - label: string
@@ -53,11 +53,9 @@ const ButtonVariant4 = ({
     if (visualState === 'solid') {
       return { backgroundColor: 'green', animation: 'none' };
     } else if (visualState === 'flashing') {
-      // Apply animation directly via style - requires @keyframes in CSS
       return {
           backgroundColor: blink ? 'red' : 'grey',
-          // Or use animation property if @keyframes 'variant-flash' is defined
-          // animation: 'variant-flash 0.5s infinite alternate'
+          // animation: 'variant-flash 0.5s infinite alternate' // If keyframes are defined
         };
     } else {
       return { backgroundColor: '#ddd', animation: 'none' }; // Default 'off' color
@@ -69,6 +67,7 @@ const ButtonVariant4 = ({
   const color2 = indicator2.color || DEFAULT_COLOR_2;
 
   return (
+    // Main wrapper still stacks elements vertically
     <div className="button-variant-wrapper">
       {/* Label */}
       <span className="button-label">{label}</span>
@@ -76,20 +75,24 @@ const ButtonVariant4 = ({
       {/* Rectangular Indicator */}
       <div className="rect-indicator" style={getRectIndicatorStyle()}></div>
 
-      {/* Main Button */}
-      <button className="button" onClick={onClick}></button>
+      {/* Container for button and its relative circular indicators */}
+      <div className="button-with-indicators">
+        {/* Main Button */}
+        <button className="button" onClick={onClick}></button>
 
-      {/* Circular Indicators (positioned relative to top of wrapper) */}
-      <span
-        className={`circular-indicator indicator-pos-v4-tl1 ${indicator1.isOn ? 'on' : ''}`}
-        style={{ '--indicator-color': color1 }}
-        title={`Indicator 1: ${indicator1.isOn ? 'On' : 'Off'}`}
-      />
-      <span
-        className={`circular-indicator indicator-pos-v4-tl2 ${indicator2.isOn ? 'on' : ''}`}
-        style={{ '--indicator-color': color2 }}
-        title={`Indicator 2: ${indicator2.isOn ? 'On' : 'Off'}`}
-      />
+        {/* Circular Indicators - Now positioned relative to this container */}
+        {/* Using the same positioning classes as ButtonVariant1 */}
+        <span
+          className={`circular-indicator indicator-pos-tl1 ${indicator1.isOn ? 'on' : ''}`}
+          style={{ '--indicator-color': color1 }}
+          title={`Indicator 1: ${indicator1.isOn ? 'On' : 'Off'}`}
+        />
+        <span
+          className={`circular-indicator indicator-pos-tl2 ${indicator2.isOn ? 'on' : ''}`}
+          style={{ '--indicator-color': color2 }}
+          title={`Indicator 2: ${indicator2.isOn ? 'On' : 'Off'}`}
+        />
+      </div>
     </div>
   );
 };

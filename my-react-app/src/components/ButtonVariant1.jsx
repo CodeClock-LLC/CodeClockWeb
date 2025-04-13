@@ -4,8 +4,7 @@ import './ButtonVariants.css'; // Import shared styles
 
 // Define default colors within the component
 // const DEFAULT_COLOR_1 = '#FF5733'; // Orange
-const DEFAULT_COLOR_1 = '#33FF57'; // Orange
-
+const DEFAULT_COLOR_1 = '#33FF57'; // Green
 const DEFAULT_COLOR_2 = '#33FF57'; // Green
 
 /**
