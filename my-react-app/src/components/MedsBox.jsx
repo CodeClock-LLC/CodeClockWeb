@@ -1,11 +1,18 @@
 // src/components/MedsBox.jsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Button from './Button';
-import ButtonVariant1 from './ButtonVariant1'; // Import the new button variant
+import Button from './Button'; // Original button for top row
+import ButtonVariant1 from './ButtonVariant1'; // Variant for bottom row
 import { boxButtonLabels } from '../config/boxConfig';
-// *** IMPORTANT: Make sure you have created src/redux/medsSlice.js ***
-import { toggleButton } from '../redux/medsSlice'; // Import the specific action
+// Import the actions needed from the updated slice
+import {
+    toggleButton,
+    toggleIndicator1 // Action for V1 indicator example
+    /* Add other indicator actions if needed: , toggleIndicator2, setIndicator1State, etc. */
+} from '../redux/medsSlice';
+
+// Import CSS if needed
+// import './MedsBox.css'; // Or ButtonVariants.css if styles are shared
 
 const boxName = 'Meds';
 // Get all labels for this box, default to empty array if not found
@@ -18,11 +25,11 @@ const bottomRowLabels = allLabels.slice(3); // The rest of the labels
 
 const MedsBox = () => {
     const dispatch = useDispatch();
-    // Select the state for this slice
-    const buttonStates = useSelector((state) => state[sliceName]);
+    // Select the state for this slice (contains objects per label)
+    const buttonStateObjects = useSelector((state) => state[sliceName]);
 
     // Handle case where slice state might not be ready/configured
-    if (!buttonStates) {
+    if (!buttonStateObjects) {
         console.error(`State for slice "${sliceName}" not found! Ensure the slice and reducer are configured.`);
         return <div className="red-boxd"><h3>{boxName}</h3><div>Error loading buttons.</div></div>;
     }
@@ -33,45 +40,56 @@ const MedsBox = () => {
             {/* Box Title */}
             <h3>{boxName}</h3>
 
-            {/* Top Row - First 3 Buttons */}
-            <div className="button-row" style={{ marginBottom: '10px' }}> {/* Added margin below top row */}
-                {topRowLabels.map((label) => (
-                    <Button
-                        key={label} // Use label as unique key
-                        label={label} // Display the actual medication/action name
-                        visualState={buttonStates[label] ?? 'off'} // Get state from Redux
-                        onClick={() => dispatch(toggleButton(label))} // Dispatch toggle action
-                    />
-                ))}
+            {/* Top Row - First 3 Buttons (Using Original Button) */}
+            <div className="button-row" style={{ marginBottom: '10px' }}>
+                {topRowLabels.map((label) => {
+                    // Get the state object for this button, provide default if missing
+                    const stateObj = buttonStateObjects[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
+                    return (
+                        <Button
+                            key={label}
+                            label={label}
+                            // --- CORRECTED ---
+                            // Pass the mainState string ('off', 'solid', 'flashing')
+                            // to the original Button's visualState prop.
+                            visualState={stateObj.mainState}
+                            // --- END CORRECTION ---
+                            onClick={() => dispatch(toggleButton(label))} // Toggles mainState in Redux
+                        />
+                    );
+                })}
             </div>
 
-            {/* --- Div for Text Display Added Here --- */}
-            <div className="meds-info-box red-border"> {/* Changed class name */}
-                {/* Placeholder text - replace with dynamic content later if needed */}
-                TODO: Add Notes on Bolus and Drip Indicators
+            {/* --- Div for Text Display --- */}
+            {/* <div className="meds-info-box red-boxd">
+                    🟢 = Bolus,       🔵 = Drip (Double Press)
+            </div> */}
+            <div className="meds-info-box red-boxd">
+                <span className="info-item">🟢 = Bolus</span>
+                <span className="info-item">🔵 = Drip (Double Press)</span>
             </div>
             {/* --- End Text Display Div --- */}
 
-            {/* Bottom Row - Remaining Buttons */}
+            {/* Bottom Row - Remaining Buttons (Using ButtonVariant1) */}
             <div className="button-row">
                 {bottomRowLabels.map((label) => {
-                        // Get the state object for this button, default if not found
-                        const stateObj = buttonStates[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
-                        return (
-                            <ButtonVariant1
-                                key={label}
-                                label={label} // Label above the button
-                                // The main button click still toggles the main visual state (off/solid/flashing)
-                                onClick={() => dispatch(toggleButton(label))}
-                                // Pass indicator states from the Redux state object
-                                // The 'isOn' property controls the indicator's brightness/visibility
-                                indicator1={{ isOn: stateObj.indicator1On ?? false }}
-                                indicator2={{ isOn: stateObj.indicator2On ?? false }}
-                                // Note: Colors are using the defaults defined within ButtonVariant1.jsx
-                                // You could pass 'color: "your_color"' in the objects above to override.
-                            />
-                        );
-                    })}
+                     // Get the state object for this button, provide default if missing
+                    const stateObj = buttonStateObjects[label] || { mainState: 'off', indicator1On: false, indicator2On: false };
+                    return (
+                        <ButtonVariant1
+                            key={label}
+                            label={label}
+                            // Example onClick: Toggles main state AND indicator 1
+                            onClick={() => {
+                                dispatch(toggleButton(label));
+                                dispatch(toggleIndicator1(label));
+                            }}
+                            // Pass indicator states from the Redux state object
+                            indicator1={{ isOn: stateObj.indicator1On ?? false }}
+                            indicator2={{ isOn: stateObj.indicator2On ?? false }}
+                        />
+                    );
+                })}
             </div>
         </div>
     );

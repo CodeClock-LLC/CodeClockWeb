@@ -203,7 +203,7 @@ body {
 }
 
 /* Styles for the text display div added in MedsBox.jsx */
-.meds-info-box {
+.meds-info-box-old {
   width: 100%; /* Make it slightly less than full width */
   padding: 10px 15px; /* Inner spacing */
   margin: 15px auto; /* Vertical space + horizontal centering */
@@ -217,4 +217,15 @@ body {
   text-align: left; /* Align text to the left */
   box-sizing: border-box; /* Include padding and border in element's total width and height */
   border: 1px solid #ff0000; /* Default border */
+  text-align: center; /* Center text */
+}
+
+/* Styles for the text display div added in MedsBox.jsx */
+.meds-info-box {
+  text-align: center; /* Center text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  
 }
