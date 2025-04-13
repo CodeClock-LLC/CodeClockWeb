@@ -2,85 +2,122 @@
 
 /* Wrapper for positioning context and vertical stacking */
 .button-variant-wrapper {
-    position: relative; /* Needed for absolute positioning of indicators */
-    display: flex;
-    flex-direction: column; /* Stack label, indicators, button */
-    align-items: center; /* Center items horizontally */
-    padding-left: 20px; /* Add padding on the left to make space for indicators */
-    padding-right: 5px; /* Minimal padding on right */
-    margin-bottom: 10px; /* Space below component */
-    min-width: 120px; /* Ensure minimum width */
-  }
-  
-  /* Reuse existing label style or define here */
-  .button-variant-wrapper .button-label {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block;
-    color: white;
-    text-align: center;
-    width: 100%; /* Allow label to span above button */
-    word-wrap: break-word;
-  }
-  
-  /* Reuse existing button style or define here */
-  .button-variant-wrapper .button {
-    position: relative; /* Keep relative for potential future content */
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #ddd;
-    display: flex;
+  position: relative; /* Needed for absolute positioning of indicators */
+  display: flex;
+  flex-direction: column; /* Stack label, indicators, button */
+  align-items: center; /* Center items horizontally */
+  /* padding-left: 20px; */ /* REMOVED - No longer needed for indicator spacing */
+  padding: 0 5px; /* Minimal horizontal padding */
+  margin-bottom: 10px; /* Space below component */
+  min-width: 100px; /* Ensure minimum width based on button */
+}
+
+/* Reuse existing label style or define here */
+.button-variant-wrapper .button-label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  color: white;
+  text-align: center;
+  width: 100%; /* Allow label to span above button */
+  word-wrap: break-word;
+}
+
+/* New container for button + indicators */
+.button-with-indicators {
+    position: relative; /* Establishes positioning context for indicators */
+    width: 100px; /* Match button width */
+    height: 100px; /* Match button height */
+    display: flex; /* Use flex to center button if needed, though button has fixed size */
     justify-content: center;
     align-items: center;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    margin-top: 5px; /* Space below indicators */
-  }
-  .button-variant-wrapper .button:hover {
-    background-color: #bbb;
-  }
-  .button-variant-wrapper .button:active {
-    transform: scale(0.95);
-  }
-  
-  /* Reuse existing rectangular indicator style for Variant 4 */
-  .button-variant-wrapper .rect-indicator {
-    width: 100px;
-    height: 30px;
-    background-color: #ddd;
-    transition: background-color 0.3s ease, visibility 0.3s ease;
-    margin-bottom: 5px; /* Space between indicator and button */
-  }
-  /* Keyframes for flashing effect (if needed for Variant 4) */
-  @keyframes variant-flash {
-    0% { background-color: red; }
-    100% { background-color: grey; }
-  }
-  
-  
-  /* Base style for small circular indicators */
-  .circular-indicator {
-    width: 8px; /* Slightly larger for visibility */
-    height: 8px;
-    border-radius: 50%;
-    position: absolute; /* Position relative to wrapper */
-    background-color: var(--indicator-color, #555); /* Default dim gray */
-    opacity: 0.4; /* Dim when off */
-    transition: opacity 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: none; /* No glow when off */
-  }
-  
-  /* Style for when the indicator is 'on' (lit up) */
-  .circular-indicator.on {
-    opacity: 1; /* Fully visible */
-    /* Add a subtle glow using box-shadow */
-    box-shadow: 0 0 4px 1px var(--indicator-color, #fff);
-  }
-  
-  /* --- Positioning Classes --- */
-  /* Adjust top/left/bottom values as needed for visual alignment */
-  
-  /* T
+    margin-top: 5px; /* Add space below label or rect-indicator */
+}
+
+/* Reuse existing button style or define here */
+.button-variant-wrapper .button {
+  position: relative; /* Keep relative for potential future content */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  /* margin-top: 5px; */ /* REMOVED - Container handles flow */
+}
+.button-variant-wrapper .button:hover {
+  background-color: #bbb;
+}
+.button-variant-wrapper .button:active {
+  transform: scale(0.95);
+}
+
+/* Reuse existing rectangular indicator style for Variant 4 */
+.button-variant-wrapper .rect-indicator {
+  width: 100px;
+  height: 30px;
+  background-color: #ddd;
+  transition: background-color 0.3s ease, visibility 0.3s ease;
+  margin-bottom: 5px; /* Space between indicator and button container */
+}
+/* Keyframes for flashing effect (if needed for Variant 4) */
+@keyframes variant-flash {
+  0% { background-color: red; }
+  100% { background-color: grey; }
+}
+
+
+/* Base style for small circular indicators */
+.circular-indicator {
+  width: 8px; /* Slightly larger for visibility */
+  height: 8px;
+  border-radius: 50%;
+  position: absolute; /* Position relative to button-with-indicators */
+  background-color: var(--indicator-color, #555); /* Default dim gray */
+  opacity: 0.4; /* Dim when off */
+  transition: opacity 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: none; /* No glow when off */
+  z-index: 2; /* Ensure indicators are above the button */
+}
+
+/* Style for when the indicator is 'on' (lit up) */
+.circular-indicator.on {
+  opacity: 1; /* Fully visible */
+  /* Add a subtle glow using box-shadow */
+  box-shadow: 0 0 4px 1px var(--indicator-color, #fff);
+}
+
+/* --- Positioning Classes --- */
+/* Positioned relative to the button-with-indicators container */
+/* These values position indicators just outside the top-left and bottom-left */
+
+/* Top-Left Stack */
+.indicator-pos-tl1 {
+    top: 5px; /* Near top edge of button container */
+    left: -12px; /* Slightly outside the left edge */
+}
+.indicator-pos-tl2 {
+    top: 17px; /* Below tl1 (8px height + 4px gap) */
+    left: -12px; /* Same horizontal position */
+}
+.indicator-pos-tl3 {
+    top: 29px; /* Below tl2 */
+    left: -12px; /* Same horizontal position */
+}
+
+/* Bottom-Left */
+.indicator-pos-bl {
+    bottom: 5px; /* Near bottom edge */
+    left: -12px; /* Slightly outside the left edge */
+}
+
+/* Positioning for Variant 4 (relative to top of main wrapper still, adjust if needed) */
+/* These might need fine-tuning based on where the rect-indicator sits */
+.indicator-pos-v4-tl1 { top: 5px; left: 0px; }
+.indicator-pos-v4-tl2 { top: 17px; left: 0px; }
+
