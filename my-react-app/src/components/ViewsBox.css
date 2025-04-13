@@ -1,0 +1,47 @@
+/* Styles for the ViewsBox hover overlay */
+
+/* Container needs relative positioning for the absolute overlay */
+.views-box-container {
+    position: relative;
+    /* Ensure container takes up space */
+    min-height: 150px; /* Adjust as needed based on content */
+     /* Inherit border-radius if the parent .red-boxd has one */
+    border-radius: inherit;
+    overflow: hidden; /* Optional: hide overlay overflow if needed */
+  }
+  
+  /* The overlay itself */
+  .construction-overlay {
+    position: absolute; /* Position relative to .views-box-container */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(40, 40, 40, 0.9); /* Dark semi-transparent overlay */
+    color: #f0f0f0; /* Light text */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Prevent interactions when hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+    z-index: 10; /* Ensure it's above the buttons */
+    border-radius: inherit; /* Match container's border radius */
+  }
+  
+  .construction-overlay p {
+      margin: 5px 0; /* Spacing for text lines */
+  }
+  
+  /* Show overlay when hovering over the container */
+  .views-box-container:hover .construction-overlay {
+    opacity: 1; /* Make visible */
+    pointer-events: auto; /* Allow text selection if needed */
+  }
+  
+  

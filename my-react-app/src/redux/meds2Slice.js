@@ -1,13 +1,10 @@
-// src/redux/medsSlice.js
+// src/redux/meds2Slice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { getNextButtonState } from './buttonStateHelper';
 import { boxButtonLabels } from '../config/boxConfig';
 
-const boxName = 'Meds';
+const boxName = 'Meds2';
 const labels = boxButtonLabels[boxName];
-
-
-
 
 const initialState = labels.reduce((acc, label) => {
     acc[label] = 'off';

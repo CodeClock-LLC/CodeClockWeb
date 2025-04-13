@@ -61,13 +61,13 @@ export const RolesBoxLabels = [
     'PHARAMACY',
     'RUNNER'
 ];
-// export const Meds2BoxLabels = [
-//     'Meds2-1',
-//     'Meds2-2',
-//     'Meds2-3',
-//     'Meds2-4',
-//     'Meds2-5'
-// ];
+export const Meds2BoxLabels = [
+    'Meds2-1',
+    'Meds2-2',
+    'Meds2-3',
+    'Meds2-4',
+    'Meds2-5'
+];
 export const ViewsBoxLabels = [
     'VIEW',
     'UNDO'
@@ -87,7 +87,7 @@ export const boxButtonLabels = {
     'Meds': MedsBoxLabels,
     'Tasks': TasksBoxLabels,
     'Roles': RolesBoxLabels,
-    // 'Meds2': Meds2BoxLabels,
+    'Meds2': Meds2BoxLabels,
     'Views': ViewsBoxLabels,
     'EndStates': EndStatesBoxLabels,
 };
